@@ -1,5 +1,5 @@
 import Script from 'next/script'
-
+export const dynamic = 'force-dynamic'
 import Navbar from '../../components/Navbar'
 
 import GsapReveal from '../../components/GsapReveal'

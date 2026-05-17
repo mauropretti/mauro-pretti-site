@@ -1,5 +1,6 @@
 import Navbar from './components/Navbar'
 import ParallaxImage from './components/ParallaxImage'
+export const dynamic = 'force-dynamic'
 
 import {client} from '@/sanity/client'
 import {urlFor} from '@/sanity/image'

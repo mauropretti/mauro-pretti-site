@@ -1,4 +1,5 @@
 import Navbar from '../components/Navbar'
+export const dynamic = 'force-dynamic'
 import GsapReveal from '../components/GsapReveal'
 import Link from 'next/link'
 import GsapStagger from '../components/GsapStagger'
