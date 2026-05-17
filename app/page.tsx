@@ -31,8 +31,12 @@ export default async function HomePage() {
     projects.forEach((project: any) => {
 
      const image =
-  project.gallery?.[i] ||
-  (i === 0 ? project.coverImage : null)
+  i === 0
+    ? (
+        project.coverImage ||
+        project.gallery?.[0]
+      )
+    : project.gallery?.[i]
 
 if (image) {
 
