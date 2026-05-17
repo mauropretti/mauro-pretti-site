@@ -1,3 +1,23 @@
 import {projectType} from './project'
 
-export const schemaTypes = [projectType]
+import {settingsType} from './settings'
+
+import {advertisingType} from './advertising'
+
+import {theatreType} from './theatre'
+
+import {contactPageType} from './contactPage'
+
+export const schemaTypes = [
+
+  projectType,
+
+  advertisingType,
+
+  theatreType,
+
+  settingsType,
+
+  contactPageType,
+
+]

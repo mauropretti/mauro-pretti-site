@@ -46,7 +46,7 @@ export default async function ProjectPage({
 
       <Navbar />
 
-      {/* FIXED LOGO */}
+      {/* LOGO */}
 
       <div
         className="
@@ -81,128 +81,37 @@ export default async function ProjectPage({
 
       <section className="pt-32 md:pt-40 px-6 md:px-10 pb-40">
 
-        <div className="max-w-[1200px] mx-auto">
+        <div className="max-w-[1400px] mx-auto">
 
           {/* HEADER */}
 
-          <div
-            className="
-              mb-20
+          <div className="mb-20">
 
-              opacity-0
-
-              animate-[fadeImage_2.2s_cubic-bezier(0.22,1,0.36,1)_forwards]
-            "
-          >
-
-            <div
+            <h1
               className="
-                flex
-                flex-col
-                md:flex-row
-                md:items-start
-                md:justify-between
-                gap-10
+                text-[34px]
+                sm:text-[44px]
+                md:text-[62px]
+
+                leading-[0.9]
+
+                tracking-[-0.06em]
+
+                font-light
+
+                text-[#4940d8]
+
+                max-w-[900px]
               "
+              style={{
+                fontFamily:
+                  'Inter, Helvetica, Arial, sans-serif',
+              }}
             >
-
-              <div>
-
-                <h1
-                  className="
-                    text-[34px]
-                    sm:text-[44px]
-                    md:text-[62px]
-
-                    leading-[0.9]
-
-                    tracking-[-0.06em]
-
-                    font-light
-
-                    text-[#4940d8]
-
-                    max-w-[900px]
-                  "
-                  style={{
-                    fontFamily:
-                      'Inter, Helvetica, Arial, sans-serif',
-                  }}
-                >
-                  {project.title}
-                </h1>
-
-                {project.description && (
-
-                  <p
-                    className="
-                      mt-8
-
-                      text-[15px]
-                      md:text-[17px]
-
-                      leading-[1.9]
-
-                      text-black/60
-
-                      max-w-[720px]
-
-                      whitespace-pre-line
-                    "
-                    style={{
-                      fontFamily:
-                        'Inter, Helvetica, Arial, sans-serif',
-                    }}
-                  >
-                    {project.description}
-                  </p>
-
-                )}
-
-              </div>
-
-            </div>
+              {project.title}
+            </h1>
 
           </div>
-
-          {/* COVER */}
-
-          {project.coverImage && (
-
-            <div
-              className="
-                overflow-hidden
-                mb-10
-                bg-[#ecece8]
-
-                opacity-0
-
-                animate-[fadeImage_2.2s_cubic-bezier(0.22,1,0.36,1)_forwards]
-              "
-            >
-
-              <img
-                src={urlFor(project.coverImage)
-                  .width(2200)
-                  .quality(100)
-                  .url()}
-                alt={project.title}
-                className="
-                  w-full
-                  h-auto
-                  object-cover
-
-                  transition
-                  duration-[2200ms]
-                  ease-out
-
-                  hover:scale-[1.01]
-                "
-              />
-
-            </div>
-
-          )}
 
           {/* GALLERY */}
 
@@ -213,34 +122,25 @@ export default async function ProjectPage({
               <div
                 key={index}
                 className="
-                  overflow-hidden
-                  bg-[#ecece8]
-
-                  opacity-0
-
-                  animate-[fadeImage_2.2s_cubic-bezier(0.22,1,0.36,1)_forwards]
+                  flex
+                  justify-center
                 "
-                style={{
-                  animationDelay: `${index * 140}ms`,
-                }}
               >
 
                 <img
                   src={urlFor(image)
-                    .width(2200)
-                    .quality(100)
+                    .width(1600)
+                    .quality(82)
                     .url()}
                   alt={project.title}
                   className="
-                    w-full
+                    w-auto
                     h-auto
-                    object-cover
 
-                    transition
-                    duration-[2200ms]
-                    ease-out
+                    max-w-full
+                    max-h-[90vh]
 
-                    hover:scale-[1.01]
+                    object-contain
                   "
                 />
 

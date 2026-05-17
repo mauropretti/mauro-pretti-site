@@ -15,9 +15,7 @@ async function getProjects() {
       slug,
       coverImage,
       gallery,
-      excerpt,
-      category,
-      year
+      excerpt
 
     }
   `)
@@ -33,7 +31,7 @@ export default async function ProjectsPage() {
 
       <Navbar />
 
-      {/* FIXED LOGO */}
+      {/* LOGO */}
 
       <div
         className="
@@ -68,7 +66,7 @@ export default async function ProjectsPage() {
 
       <section className="pt-32 md:pt-40 px-6 md:px-10 pb-40">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-24 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-24">
 
           {projects
             .filter(
@@ -79,7 +77,7 @@ export default async function ProjectsPage() {
                   project.gallery?.[0]
                 )
             )
-            .map((project: any, index: number) => {
+            .map((project: any) => {
 
               const image =
                 project.coverImage ||
@@ -90,45 +88,46 @@ export default async function ProjectsPage() {
                 <Link
                   key={project._id}
                   href={`/projects/${project.slug.current}`}
+                  scroll={true}
                   className="
                     group
                     block
                     w-full
-
-                    opacity-0
-
-                    animate-[fadeImage_1.5s_ease-out_forwards]
                   "
-                  style={{
-                    animationDelay: `${index * 120}ms`,
-                  }}
                 >
 
                   {/* IMAGE */}
 
                   <div
                     className="
+                      relative
+                      w-full
+                      aspect-[4/3]
+
                       overflow-hidden
-                      bg-[#ecece8]
                     "
                   >
 
                     <img
                       src={urlFor(image)
-                        .width(1800)
-                        .quality(100)
+                        .width(1200)
+                        .quality(82)
                         .url()}
                       alt={project.title}
                       className="
+                        absolute
+                        inset-0
+
                         w-full
-                        h-auto
+                        h-full
+
                         object-cover
 
-                        transition
-                        duration-[1600ms]
+                        transition-transform
+                        duration-700
                         ease-out
 
-                        group-hover:scale-[1.015]
+                        group-hover:scale-[1.01]
                       "
                     />
 
@@ -138,96 +137,51 @@ export default async function ProjectsPage() {
 
                   <div className="mt-5">
 
-                    <div
+                    <h2
                       className="
-                        flex
-                        items-start
-                        justify-between
-                        gap-6
+                        text-[22px]
+                        md:text-[28px]
+
+                        leading-[0.95]
+
+                        tracking-[-0.05em]
+
+                        font-light
+
+                        text-[#4940d8]
                       "
+                      style={{
+                        fontFamily:
+                          'Inter, Helvetica, Arial, sans-serif',
+                      }}
                     >
+                      {project.title}
+                    </h2>
 
-                      <div>
+                    {project.excerpt && (
 
-                        <h2
-                          className="
-                            text-[22px]
-                            md:text-[28px]
-
-                            leading-[0.95]
-
-                            tracking-[-0.05em]
-
-                            font-light
-
-                            text-[#4940d8]
-                          "
-                          style={{
-                            fontFamily:
-                              'Inter, Helvetica, Arial, sans-serif',
-                          }}
-                        >
-                          {project.title}
-                        </h2>
-
-                        {project.excerpt && (
-
-                          <p
-                            className="
-                              mt-3
-
-                              text-[14px]
-                              md:text-[15px]
-
-                              leading-[1.6]
-
-                              text-black/55
-
-                              max-w-[440px]
-                            "
-                            style={{
-                              fontFamily:
-                                'Inter, Helvetica, Arial, sans-serif',
-                            }}
-                          >
-                            {project.excerpt}
-                          </p>
-
-                        )}
-
-                      </div>
-
-                      <div
+                      <p
                         className="
-                          text-right
+                          mt-3
 
-                          text-[11px]
+                          text-[14px]
+                          md:text-[15px]
 
-                          uppercase
+                          leading-[1.6]
 
-                          tracking-[0.12em]
+                          text-black/55
 
-                          text-black/35
+                          max-w-[440px]
                         "
                         style={{
                           fontFamily:
                             'Inter, Helvetica, Arial, sans-serif',
                         }}
                       >
+                        {project.excerpt}
+                      </p>
 
-                        {project.category && (
-                          <p>{project.category}</p>
-                        )}
-
-                        {project.year && (
-                          <p className="mt-1">
-                            {project.year}
-                          </p>
-                        )}
-
-                      </div>
-
-                    </div>
+                    )}
 
                   </div>
 

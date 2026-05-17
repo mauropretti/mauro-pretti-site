@@ -1,6 +1,30 @@
+export const dynamic = 'force-dynamic'
+
 import Navbar from '../components/Navbar'
 
-export default function ContactPage() {
+import {client} from '@/sanity/client'
+
+async function getContactPage() {
+
+  return client.fetch(`
+    *[_type == "contactPage"][0]{
+
+      label,
+      title,
+      description,
+      email,
+      instagramUrl,
+      behanceUrl,
+      whatsapp
+
+    }
+  `)
+
+}
+
+export default async function ContactPage() {
+
+  const contact = await getContactPage()
 
   return (
 
@@ -47,53 +71,88 @@ export default function ContactPage() {
 
           {/* LABEL */}
 
-          <p
-            className="
-              text-[12px]
-              md:text-[13px]
+          {contact?.label && (
 
-              lowercase
+            <p
+              className="
+                text-[12px]
+                md:text-[13px]
 
-              tracking-[-0.01em]
+                lowercase
 
-              text-[#4940d8]/70
+                tracking-[-0.01em]
 
-              mb-6
-            "
-            style={{
-              fontFamily:
-                'Inter, Helvetica, Arial, sans-serif',
-            }}
-          >
-            contacto
-          </p>
+                text-[#4940d8]/70
+
+                mb-6
+              "
+              style={{
+                fontFamily:
+                  'Inter, Helvetica, Arial, sans-serif',
+              }}
+            >
+              {contact.label}
+            </p>
+
+          )}
 
           {/* TITLE */}
 
-          <h1
-            className="
-              text-[28px]
-              sm:text-[34px]
-              md:text-[48px]
-              lg:text-[58px]
+          {contact?.title && (
 
-              leading-[0.92]
+            <h1
+              className="
+                text-[28px]
+                sm:text-[34px]
+                md:text-[48px]
+                lg:text-[58px]
 
-              tracking-[-0.06em]
+                leading-[0.92]
 
-              font-light
+                tracking-[-0.06em]
 
-              text-[#4940d8]
+                font-light
 
-              mb-10
-            "
-            style={{
-              fontFamily:
-                'Inter, Helvetica, Arial, sans-serif',
-            }}
-          >
-            consultas, mensajes, escribime a
-          </h1>
+                text-[#4940d8]
+
+                mb-10
+              "
+              style={{
+                fontFamily:
+                  'Inter, Helvetica, Arial, sans-serif',
+              }}
+            >
+              {contact.title}
+            </h1>
+
+          )}
+
+          {/* DESCRIPTION */}
+
+          {contact?.description && (
+
+            <p
+              className="
+                text-[15px]
+                md:text-[17px]
+
+                leading-[1.8]
+
+                text-black/55
+
+                max-w-[720px]
+
+                mb-12
+              "
+              style={{
+                fontFamily:
+                  'Inter, Helvetica, Arial, sans-serif',
+              }}
+            >
+              {contact.description}
+            </p>
+
+          )}
 
           {/* CONTACT INFO */}
 
@@ -117,28 +176,68 @@ export default function ContactPage() {
             }}
           >
 
-            <a
-              href="mailto:hola@mauropretti.com"
-              className="
-                hover:text-black
-                transition
-                duration-500
-              "
-            >
-              hola@mauropretti.com
-            </a>
+            {contact?.email && (
 
-            <a
-              href="https://instagram.com/mauropretti_"
-              target="_blank"
-              className="
-                hover:text-black
-                transition
-                duration-500
-              "
-            >
-              Instagram
-            </a>
+              <a
+                href={`mailto:${contact.email}`}
+                className="
+                  hover:text-black
+                  transition
+                  duration-500
+                "
+              >
+                {contact.email}
+              </a>
+
+            )}
+
+            {contact?.instagramUrl && (
+
+              <a
+                href={contact.instagramUrl}
+                target="_blank"
+                className="
+                  hover:text-black
+                  transition
+                  duration-500
+                "
+              >
+                Instagram
+              </a>
+
+            )}
+
+            {contact?.behanceUrl && (
+
+              <a
+                href={contact.behanceUrl}
+                target="_blank"
+                className="
+                  hover:text-black
+                  transition
+                  duration-500
+                "
+              >
+                Behance
+              </a>
+
+            )}
+
+            {contact?.whatsapp && (
+
+              <a
+                href={`https://wa.me/${contact.whatsapp}`}
+                target="_blank"
+                className="
+                  hover:text-black
+                  transition
+                  duration-500
+                "
+              >
+                WhatsApp
+              </a>
+
+            )}
 
           </div>
 
