@@ -1,5 +1,8 @@
 import Script from 'next/script'
+
 import Navbar from '../../components/Navbar'
+
+import GsapReveal from '../../components/GsapReveal'
 
 import {notFound} from 'next/navigation'
 
@@ -52,7 +55,7 @@ export default async function ProjectPage({
       <div
         className="
           fixed
-          top-5
+          top-3
           left-5
           md:top-6
           md:left-8
@@ -62,17 +65,32 @@ export default async function ProjectPage({
 
         <a href="/">
 
-          <img
-            src="/logo.png"
-            alt="Mauro Pretti"
+          <div
             className="
-              w-[120px]
-              sm:w-[140px]
-              md:w-[170px]
-              lg:w-[190px]
-              h-auto
+              text-[#3c4696]
+
+              leading-none
+
+              tracking-[-0.0em]
+
+              font-normal
+
+              select-none
             "
-          />
+            style={{
+
+              fontFamily:
+                '"Adobe Text Pro", serif',
+
+              fontSize:
+                'clamp(28px, 2.6vw, 42px)',
+
+            }}
+          >
+
+            mauropretti
+
+          </div>
 
         </a>
 
@@ -86,33 +104,40 @@ export default async function ProjectPage({
 
           {/* HEADER */}
 
-          <div className="mb-20">
+          <GsapReveal
+            y={40}
+            duration={1.4}
+          >
 
-            <h1
-              className="
-                text-[34px]
-                sm:text-[44px]
-                md:text-[62px]
+            <div className="mb-20">
 
-                leading-[0.9]
+              <h1
+                className="
+                  text-[34px]
+                  sm:text-[44px]
+                  md:text-[62px]
 
-                tracking-[-0.06em]
+                  leading-[0.9]
 
-                font-light
+                  tracking-[-0.06em]
 
-                text-[#4940d8]
+                  font-light
 
-                max-w-[900px]
-              "
-              style={{
-                fontFamily:
-                  'Inter, Helvetica, Arial, sans-serif',
-              }}
-            >
-              {project.title}
-            </h1>
+                  text-[#4940d8]
 
-          </div>
+                  max-w-[900px]
+                "
+                style={{
+                  fontFamily:
+                    'Inter, Helvetica, Arial, sans-serif',
+                }}
+              >
+                {project.title}
+              </h1>
+
+            </div>
+
+          </GsapReveal>
 
           {/* GALLERY */}
 
@@ -120,32 +145,39 @@ export default async function ProjectPage({
 
             {project.gallery?.map((image: any, index: number) => (
 
-              <div
+              <GsapReveal
                 key={index}
-                className="
-                  flex
-                  justify-center
-                "
+                y={90}
+                duration={1.8}
               >
 
-                <img
-                  src={urlFor(image)
-                    .width(1600)
-                    .quality(82)
-                    .url()}
-                  alt={project.title}
+                <div
                   className="
-                    w-auto
-                    h-auto
-
-                    max-w-full
-                    max-h-[90vh]
-
-                    object-contain
+                    flex
+                    justify-center
                   "
-                />
+                >
 
-              </div>
+                  <img
+                    src={urlFor(image)
+                      .width(1600)
+                      .quality(82)
+                      .url()}
+                    alt={project.title}
+                    className="
+                      w-auto
+                      h-auto
+
+                      max-w-full
+                      max-h-[90vh]
+
+                      object-contain
+                    "
+                  />
+
+                </div>
+
+              </GsapReveal>
 
             ))}
 
@@ -154,14 +186,15 @@ export default async function ProjectPage({
         </div>
 
       </section>
-<Script id="scroll-top">
 
-  {`
-    window.scrollTo(0, 0);
-  `}
+      <Script id="scroll-top">
 
-</Script>
+        {`
+          window.scrollTo(0, 0);
+        `}
 
-</main>
+      </Script>
+
+    </main>
   )
 }

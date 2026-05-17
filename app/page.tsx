@@ -55,10 +55,10 @@ if (image) {
 
       {/* FIXED LOGO */}
 
-      <div
+        <div
         className="
           fixed
-          top-5
+          top-3
           left-5
           md:top-6
           md:left-8
@@ -66,20 +66,39 @@ if (image) {
         "
       >
 
-        <img
-          src="/logo.png"
-          alt="Mauro Pretti"
-          className="
-            w-[120px]
-            sm:w-[140px]
-            md:w-[170px]
-            lg:w-[190px]
-            h-auto
-          "
-        />
+       
+<a href="/">
+
+  <div
+    className="
+      text-[#3c4696]
+
+      leading-none
+
+      tracking-[-0.0em]
+
+      font-normal
+
+      select-none
+    "
+    style={{
+
+      fontFamily:
+        '"Adobe Text Pro", serif',
+
+      fontSize:
+        'clamp(28px, 2.6vw, 42px)',
+
+    }}
+  >
+
+    mauropretti
+
+  </div>
+
+</a>
 
       </div>
-
       {/* STACK */}
 
       <section className="pt-32 md:pt-40 pb-40">

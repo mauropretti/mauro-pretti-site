@@ -1,6 +1,7 @@
 import Navbar from '../components/Navbar'
-
+import GsapReveal from '../components/GsapReveal'
 import Link from 'next/link'
+import GsapStagger from '../components/GsapStagger'
 
 import {client} from '@/sanity/client'
 import {urlFor} from '@/sanity/image'
@@ -33,10 +34,10 @@ export default async function ProjectsPage() {
 
       {/* LOGO */}
 
-      <div
+       <div
         className="
           fixed
-          top-5
+          top-3
           left-5
           md:top-6
           md:left-8
@@ -46,154 +47,149 @@ export default async function ProjectsPage() {
 
         <a href="/">
 
-          <img
-            src="/logo.png"
-            alt="Mauro Pretti"
-            className="
-              w-[120px]
-              sm:w-[140px]
-              md:w-[170px]
-              lg:w-[190px]
-              h-auto
-            "
-          />
+  <div
+    className="
+      text-[#3c4696]
 
-        </a>
+      leading-none
+
+      tracking-[-0.0em]
+
+      font-normal
+
+      select-none
+    "
+    style={{
+
+      fontFamily:
+        '"Adobe Text Pro", serif',
+
+      fontSize:
+        'clamp(28px, 2.6vw, 42px)',
+
+    }}
+  >
+
+    mauropretti
+
+  </div>
+
+</a>
 
       </div>
-
       {/* CONTENT */}
+     <section className="pt-32 md:pt-40 px-6 md:px-10 pb-40">
 
-      <section className="pt-32 md:pt-40 px-6 md:px-10 pb-40">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-24">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-24">
+    {projects
+      .filter(
+        (project: any) =>
+          project.slug?.current &&
+          (
+            project.coverImage ||
+            project.gallery?.[0]
+          )
+      )
+      .map((project: any) => {
 
-          {projects
-            .filter(
-              (project: any) =>
-                project.slug?.current &&
-                (
-                  project.coverImage ||
-                  project.gallery?.[0]
-                )
-            )
-            .map((project: any) => {
+        const image =
+          project.coverImage ||
+          project.gallery?.[0]
 
-              const image =
-                project.coverImage ||
-                project.gallery?.[0]
+        return (
 
-              return (
+          <GsapReveal
+            key={project._id}
+            y={80}
+            duration={1.8}
+          >
 
-                <Link
-                  key={project._id}
-                  href={`/projects/${project.slug.current}`}
-                  scroll={true}
+            <Link
+              href={`/projects/${project.slug.current}`}
+              scroll={true}
+              className="
+                group
+                block
+                w-full
+              "
+            >
+
+              {/* IMAGE */}
+
+              <div
+                className="
+                  relative
+                  w-full
+                  aspect-[4/3]
+
+                  overflow-hidden
+                "
+              >
+
+                <img
+                  src={urlFor(image)
+                    .width(1200)
+                    .quality(82)
+                    .url()}
+                  alt={project.title}
                   className="
-                    group
-                    block
+                    absolute
+                    inset-0
+
                     w-full
+                    h-full
+
+                    object-cover
+
+                    transition-transform
+                    duration-700
+                    ease-out
+
+                    group-hover:scale-[1.01]
                   "
+                />
+
+              </div>
+
+              {/* INFO */}
+
+              <div className="mt-5">
+
+                <h2
+                  className="
+                    text-[22px]
+                    md:text-[28px]
+
+                    leading-[0.95]
+
+                    tracking-[-0.05em]
+
+                    font-light
+
+                    text-[#4940d8]
+                  "
+                  style={{
+                    fontFamily:
+                      'Inter, Helvetica, Arial, sans-serif',
+                  }}
                 >
+                  {project.title}
+                </h2>
 
-                  {/* IMAGE */}
+              </div>
 
-                  <div
-                    className="
-                      relative
-                      w-full
-                      aspect-[4/3]
+            </Link>
 
-                      overflow-hidden
-                    "
-                  >
+          </GsapReveal>
 
-                    <img
-                      src={urlFor(image)
-                        .width(1200)
-                        .quality(82)
-                        .url()}
-                      alt={project.title}
-                      className="
-                        absolute
-                        inset-0
+        )
 
-                        w-full
-                        h-full
+      })}
 
-                        object-cover
+  </div>
 
-                        transition-transform
-                        duration-700
-                        ease-out
-
-                        group-hover:scale-[1.01]
-                      "
-                    />
-
-                  </div>
-
-                  {/* INFO */}
-
-                  <div className="mt-5">
-
-                    <h2
-                      className="
-                        text-[22px]
-                        md:text-[28px]
-
-                        leading-[0.95]
-
-                        tracking-[-0.05em]
-
-                        font-light
-
-                        text-[#4940d8]
-                      "
-                      style={{
-                        fontFamily:
-                          'Inter, Helvetica, Arial, sans-serif',
-                      }}
-                    >
-                      {project.title}
-                    </h2>
-
-                    {project.excerpt && (
-
-                      <p
-                        className="
-                          mt-3
-
-                          text-[14px]
-                          md:text-[15px]
-
-                          leading-[1.6]
-
-                          text-black/55
-
-                          max-w-[440px]
-                        "
-                        style={{
-                          fontFamily:
-                            'Inter, Helvetica, Arial, sans-serif',
-                        }}
-                      >
-                        {project.excerpt}
-                      </p>
-
-                    )}
-
-                  </div>
-
-                </Link>
-
-              )
-
-            })}
-
-        </div>
-
-      </section>
+</section>
 
     </main>
   )

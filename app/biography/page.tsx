@@ -10,10 +10,10 @@ export default function BiographyPage() {
 
       {/* FIXED LOGO */}
 
-      <div
+       <div
         className="
           fixed
-          top-5
+          top-3
           left-5
           md:top-6
           md:left-8
@@ -23,19 +23,34 @@ export default function BiographyPage() {
 
         <a href="/">
 
-          <img
-            src="/logo.png"
-            alt="Mauro Pretti"
-            className="
-              w-[120px]
-              sm:w-[140px]
-              md:w-[170px]
-              lg:w-[190px]
-              h-auto
-            "
-          />
+  <div
+    className="
+      text-[#3c4696]
 
-        </a>
+      leading-none
+
+      tracking-[-0.0em]
+
+      font-normal
+
+      select-none
+    "
+    style={{
+
+      fontFamily:
+        '"Adobe Text Pro", serif',
+
+      fontSize:
+        'clamp(28px, 2.6vw, 42px)',
+
+    }}
+  >
+
+    mauropretti
+
+  </div>
+
+</a>
 
       </div>
 
