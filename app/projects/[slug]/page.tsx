@@ -1,3 +1,4 @@
+import Script from 'next/script'
 import Navbar from '../../components/Navbar'
 
 import {notFound} from 'next/navigation'
@@ -153,7 +154,14 @@ export default async function ProjectPage({
         </div>
 
       </section>
+<Script id="scroll-top">
 
-    </main>
+  {`
+    window.scrollTo(0, 0);
+  `}
+
+</Script>
+
+</main>
   )
 }
