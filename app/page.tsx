@@ -1,65 +1,149 @@
-import Image from "next/image";
+import Navbar from './components/Navbar'
+import ParallaxImage from './components/ParallaxImage'
 
-export default function Home() {
+import {client} from '@/sanity/client'
+import {urlFor} from '@/sanity/image'
+async function getProjects() {
+
+  return client.fetch(`
+    *[_type == "project"]{
+      _id,
+      title,
+      slug,
+      gallery,
+      coverImage
+    }
+  `)
+
+}
+
+export default async function HomePage() {
+
+  const projects = await getProjects()
+
+  const mixedImages: any[] = []
+
+  // MIX ENTRE PROYECTOS
+
+  for (let i = 0; i < 10; i++) {
+
+    projects.forEach((project: any) => {
+
+     const image =
+  project.gallery?.[i] ||
+  (i === 0 ? project.coverImage : null)
+
+if (image) {
+
+  mixedImages.push({
+    image,
+    slug: project.slug?.current,
+    title: project.title,
+  })
+
+}
+
+    })
+
+  }
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+
+    <main className="bg-[#f4f4f1] text-black min-h-screen overflow-hidden">
+
+      <Navbar />
+
+      {/* FIXED LOGO */}
+
+      <div
+        className="
+          fixed
+          top-5
+          left-5
+          md:top-6
+          md:left-8
+          z-50
+        "
+      >
+
+        <img
+          src="/logo.png"
+          alt="Mauro Pretti"
+          className="
+            w-[120px]
+            sm:w-[140px]
+            md:w-[170px]
+            lg:w-[190px]
+            h-auto
+          "
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
+
+      </div>
+
+      {/* STACK */}
+
+      <section className="pt-32 md:pt-40 pb-40">
+
+        <div className="flex flex-col items-center">
+
+          {mixedImages.map((item: any, index: number) => (
+
             <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              key={index}
+              href={`/projects/${item.slug}`}
+              className={`
+                group
+                block
+                mb-20
+                md:mb-28
+
+                ${
+                  index % 4 === 0
+                    ? 'self-start ml-[8vw]'
+                    : index % 4 === 1
+                    ? 'self-end mr-[10vw]'
+                    : index % 4 === 2
+                    ? 'self-center'
+                    : 'self-start ml-[18vw]'
+                }
+              `}
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+
+              {/* IMAGE */}
+
+              <div
+                className={`
+                  overflow-visible
+                  bg-[#ecece8]
+
+                  ${
+                    index % 4 === 0
+                      ? 'w-[72vw] sm:w-[58vw] md:w-[28vw] lg:w-[32vw]'
+                      : index % 4 === 1
+                      ? 'w-[58vw] sm:w-[46vw] md:w-[22vw] lg:w-[26vw]'
+                      : index % 4 === 2
+                      ? 'w-[84vw] sm:w-[72vw] md:w-[36vw] lg:w-[40vw]'
+                      : 'w-[64vw] sm:w-[52vw] md:w-[24vw] lg:w-[28vw]'
+                  }
+                `}
+              >
+
+                <ParallaxImage
+                  src={urlFor(item.image).width(1600).url()}
+                  alt={item.title}
+                />
+
+              </div>
+
+            </a>
+
+          ))}
+
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+
+      </section>
+
+    </main>
+
+  )
 }
