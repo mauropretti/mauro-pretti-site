@@ -115,7 +115,7 @@ export default async function HomePage() {
           fixed
           inset-0
 
-          z-0
+          z-30
 
           px-6
           sm:px-8
@@ -124,13 +124,12 @@ export default async function HomePage() {
           pt-28
           sm:pt-32
           md:pt-40
-
-          pointer-events-none
         "
       >
 
         <div
           id="intro-content"
+
           className="
             w-full
 
@@ -248,7 +247,7 @@ export default async function HomePage() {
       <section
         className="
           relative
-          z-20
+          z-10
 
           pt-[52vh]
           md:pt-[58vh]
