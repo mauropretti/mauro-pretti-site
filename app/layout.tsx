@@ -20,9 +20,13 @@ export default function RootLayout({
 
       <body>
 
-        <SmoothScroll />
+        <div className="site-shell">
 
-        {children}
+          <SmoothScroll />
+
+          {children}
+
+        </div>
 
       </body>
 

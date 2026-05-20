@@ -1,7 +1,6 @@
 import Script from 'next/script'
 export const dynamic = 'force-dynamic'
-import Navbar from '../../components/Navbar'
-
+import Header from '../../components/Header'
 import GsapReveal from '../../components/GsapReveal'
 
 import {notFound} from 'next/navigation'
@@ -48,54 +47,9 @@ export default async function ProjectPage({
 
     <main className="bg-[#f4f4f1] text-black min-h-screen overflow-hidden">
 
-      <Navbar />
+      <Header />
 
-      {/* LOGO */}
-
-      <div
-        className="
-          fixed
-          top-3
-          left-5
-          md:top-6
-          md:left-8
-          z-50
-        "
-      >
-
-        <a href="/">
-
-          <div
-            className="
-              text-[#3c4696]
-
-              leading-none
-
-              tracking-[-0.0em]
-
-              font-normal
-
-              select-none
-            "
-            style={{
-
-              fontFamily:
-                '"Adobe Text Pro", serif',
-
-              fontSize:
-                'clamp(28px, 2.6vw, 42px)',
-
-            }}
-          >
-
-            mauropretti
-
-          </div>
-
-        </a>
-
-      </div>
-
+      
       {/* CONTENT */}
 
       <section className="pt-32 md:pt-40 px-6 md:px-10 pb-40">

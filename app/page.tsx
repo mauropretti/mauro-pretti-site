@@ -1,4 +1,4 @@
-import Navbar from './components/Navbar'
+import Header from './components/Header'
 import ProjectLink from './components/ProjectLink'
 import AppLink from './components/AppLink'
 
@@ -58,73 +58,35 @@ export default async function HomePage() {
 
     <main className="bg-[#f4f4f1] text-black min-h-screen">
 
-      <Navbar />
-
-      {/* LOGO */}
-
-      <div
-        className="
-          fixed
-          top-3
-          left-5
-          md:top-6
-          md:left-8
-          z-50
-        "
-      >
-
-        <AppLink href="/">
-
-          <div
-            className="
-              text-[#3c4696]
-              leading-none
-              tracking-[-0.0em]
-              font-normal
-              select-none
-            "
-            style={{
-              fontFamily:
-                '"Adobe Text Pro", serif',
-
-              fontSize:
-                'clamp(28px, 2.6vw, 42px)',
-            }}
-          >
-
-            mauropretti
-
-          </div>
-
-        </AppLink>
-
-      </div>
-
+      <Header />
       {/* INTRO */}
 
       <section
-        className="
-          fixed
-          top-0
-          left-0
-          right-0
+  className="
+    fixed
+    top-0
 
-          h-auto
+    left-1/2
+    -translate-x-1/2
 
-          z-30
+    w-full
+    max-w-[1580px]
 
-          px-6
-          sm:px-8
-          md:px-10
+    h-auto
 
-          pt-28
-          sm:pt-32
-          md:pt-40
+    z-30
 
-          pointer-events-none
-        "
-      >
+    px-6
+    sm:px-8
+    md:px-10
 
+    pt-28
+    sm:pt-32
+    md:pt-40
+
+    pointer-events-none
+  "
+>
         <div
           id="intro-content"
 

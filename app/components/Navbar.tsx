@@ -7,8 +7,11 @@ export default function Navbar() {
     <header
       className="
         fixed
-        top-0
-        left-0
+       left-1/2
+-translate-x-1/2
+
+w-full
+max-w-[1580px]
         w-full
         z-50
         mix-blend-difference

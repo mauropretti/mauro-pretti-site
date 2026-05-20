@@ -1,7 +1,7 @@
 export const dynamic = 'force-dynamic'
+
 import ContactForm from '../components/ContactForm'
-import Navbar from '../components/Navbar'
-import AppLink from '../components/AppLink'
+import Header from '../components/Header'
 
 import {client} from '@/sanity/client'
 
@@ -29,59 +29,30 @@ export default async function ContactPage() {
 
   return (
 
-    <main className="bg-[#f4f4f1] text-black min-h-screen overflow-hidden">
+    <main
+      className="
+        bg-[#f4f4f1]
+        text-black
+        min-h-screen
+        overflow-hidden
+      "
+    >
 
-      <Navbar />
-
-      {/* FIXED LOGO */}
-
-      <div
-        className="
-          fixed
-          top-3
-          left-5
-          md:top-6
-          md:left-8
-          z-50
-        "
-      >
-
-        <AppLink href="/">
-
-          <div
-            className="
-              text-[#3c4696]
-
-              leading-none
-
-              tracking-[-0.0em]
-
-              font-normal
-
-              select-none
-            "
-            style={{
-
-              fontFamily:
-                '"Adobe Text Pro", serif',
-
-              fontSize:
-                'clamp(28px, 2.6vw, 42px)',
-
-            }}
-          >
-
-            mauropretti
-
-          </div>
-
-        </AppLink>
-
-      </div>
+      <Header />
 
       {/* CONTENT */}
 
-      <section className="pt-32 md:pt-40 px-6 md:px-10 pb-40">
+      <section
+        className="
+          pt-32
+          md:pt-40
+
+          px-6
+          md:px-10
+
+          pb-40
+        "
+      >
 
         <div className="max-w-[900px]">
 
@@ -267,12 +238,14 @@ export default async function ContactPage() {
 
         <div className="mt-24">
 
-  <ContactForm />
+          <ContactForm />
 
-</div>
+        </div>
 
       </section>
 
     </main>
+
   )
+
 }

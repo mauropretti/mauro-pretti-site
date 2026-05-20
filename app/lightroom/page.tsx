@@ -1,7 +1,6 @@
 export const dynamic = 'force-dynamic'
 
-import Navbar from '../components/Navbar'
-import AppLink from '../components/AppLink'
+import Header from '../components/Header'
 
 export default async function LightroomPage() {
 
@@ -9,53 +8,7 @@ export default async function LightroomPage() {
 
     <main className="bg-[#f4f4f1] text-black min-h-screen overflow-hidden">
 
-      <Navbar />
-
-      {/* FIXED LOGO */}
-
-      <div
-        className="
-          fixed
-          top-3
-          left-5
-          md:top-6
-          md:left-8
-          z-50
-        "
-      >
-
-        <AppLink href="/">
-
-          <div
-            className="
-              text-[#3c4696]
-
-              leading-none
-
-              tracking-[-0.0em]
-
-              font-normal
-
-              select-none
-            "
-            style={{
-
-              fontFamily:
-                '"Adobe Text Pro", serif',
-
-              fontSize:
-                'clamp(28px, 2.6vw, 42px)',
-
-            }}
-          >
-
-            mauropretti
-
-          </div>
-
-        </AppLink>
-
-      </div>
+      <Header />
 
       {/* CONTENT */}
 
