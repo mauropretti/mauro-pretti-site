@@ -1,5 +1,3 @@
-import Script from 'next/script'
-
 import Navbar from './components/Navbar'
 import ProjectLink from './components/ProjectLink'
 import AppLink from './components/AppLink'
@@ -198,51 +196,140 @@ export default async function HomePage() {
 
           </p>
 
-          <div
-            className="
-              pointer-events-auto
-              relative
-              z-50
-            "
-          >
+          {/* LINKS */}
 
-            <AppLink
-              href="/lightroom"
+<div
+  className="
+    pointer-events-auto
+    relative
+    z-50
 
-              className="
-                inline-flex
+    flex
+    flex-wrap
 
-                mt-7
-                sm:mt-8
+    items-center
 
-                rounded-full
+    gap-x-6
+    gap-y-3
 
-                border
-                border-black/10
+    mt-7
+    sm:mt-8
+  "
+>
 
-                px-4
-                py-2
+  {/* LIGHTROOM */}
 
-                text-[12px]
-                sm:text-[13px]
+  <AppLink
+    href="/lightroom"
 
-                tracking-[-0.02em]
+    className="
+      inline-flex
 
-                text-black/80
+      rounded-full
 
-                transition-all
-                duration-500
+      border
+      border-black/10
 
-                hover:bg-black
-                hover:text-white
-              "
-            >
+      px-4
+      py-2
 
-              Curso Lightroom
+      text-[12px]
+      sm:text-[13px]
 
-            </AppLink>
+      tracking-[-0.02em]
 
-          </div>
+      text-black/80
+
+      transition-all
+      duration-500
+
+      hover:bg-black
+      hover:text-white
+    "
+    style={{
+      fontFamily:
+        'Satoshi, Inter, sans-serif',
+    }}
+  >
+
+    Curso Lightroom
+
+  </AppLink>
+
+  {/* INLINE LINKS */}
+
+  <div
+    className="
+      flex
+      flex-wrap
+
+      items-center
+
+      gap-x-5
+      sm:gap-x-6
+
+      text-[13px]
+      sm:text-[14px]
+      md:text-[15px]
+
+      tracking-[-0.03em]
+
+      text-black/55
+    "
+    style={{
+      fontFamily:
+        'Satoshi, Inter, sans-serif',
+    }}
+  >
+
+    <AppLink
+      href="/publicitaria"
+
+      className="
+        transition-opacity
+        duration-500
+
+        hover:opacity-40
+      "
+    >
+
+      Publicitaria
+
+    </AppLink>
+
+    <AppLink
+      href="/teatro"
+
+      className="
+        transition-opacity
+        duration-500
+
+        hover:opacity-40
+      "
+    >
+
+      Teatro
+
+    </AppLink>
+
+    <AppLink
+      href="/el-gesto-intimo"
+
+      className="
+        transition-opacity
+        duration-500
+
+        hover:opacity-40
+      "
+    >
+
+      El gesto íntimo
+
+    </AppLink>
+
+  </div>
+
+</div>
 
         </div>
 
@@ -277,9 +364,6 @@ export default async function HomePage() {
         </div>
 
       </section>
-
-      {/* REFRESH HOME */}
-
 
     </main>
 

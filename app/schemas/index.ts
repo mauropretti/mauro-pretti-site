@@ -2,9 +2,11 @@ import {projectType} from './project'
 
 import {settingsType} from './settings'
 
-import {advertisingType} from './advertising'
+import {teatro} from'./teatro'
 
-import {theatreType} from './theatre'
+import {publicitaria} from './publicitaria'
+
+import {gestoIntimo} from './gestoIntimo'
 
 import {contactPageType} from './contactPage'
 
@@ -12,9 +14,11 @@ export const schemaTypes = [
 
   projectType,
 
-  advertisingType,
+  teatro,
 
-  theatreType,
+  publicitaria,
+  
+  gestoIntimo,
 
   settingsType,
 
