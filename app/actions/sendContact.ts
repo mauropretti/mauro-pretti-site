@@ -40,7 +40,7 @@ export async function sendContact(
           'Portfolio <onboarding@resend.dev>',
 
         to:
-          process.env.CONTACT_EMAIL || '',
+           process.env.CONTACT_EMAIL || '',
 
         subject:
           `Nuevo mensaje de ${name}`,
