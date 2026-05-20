@@ -205,15 +205,21 @@ export default async function HomePage() {
     z-50
 
     flex
-    flex-wrap
+    flex-nowrap
 
     items-center
 
-    gap-x-6
-    gap-y-3
+    gap-x-5
+    sm:gap-x-6
 
     mt-7
     sm:mt-8
+
+    overflow-x-auto
+
+    whitespace-nowrap
+
+    pb-1
   "
 >
 
