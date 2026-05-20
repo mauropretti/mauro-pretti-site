@@ -58,14 +58,16 @@ export default async function GestoIntimoPage() {
 
       <section
         className="
-          px-6
-          sm:px-8
+          px-5
+          sm:px-7
           md:px-10
 
-          pt-32
+          pt-24
+          sm:pt-28
           md:pt-40
 
-          pb-20
+          pb-16
+          md:pb-20
         "
       >
 
@@ -73,7 +75,8 @@ export default async function GestoIntimoPage() {
 
           <p
             className="
-              text-[12px]
+              text-[11px]
+              sm:text-[12px]
               md:text-[13px]
 
               lowercase
@@ -82,7 +85,8 @@ export default async function GestoIntimoPage() {
 
               text-[#4940d8]/70
 
-              mb-6
+              mb-5
+              md:mb-6
             "
             style={{
               fontFamily:
@@ -96,10 +100,10 @@ export default async function GestoIntimoPage() {
 
           <h1
             className="
-              text-[34px]
+              text-[32px]
               sm:text-[42px]
               md:text-[58px]
-              lg:text-[72px]
+              lg:text-[68px]
 
               leading-[0.92]
 
@@ -109,7 +113,8 @@ export default async function GestoIntimoPage() {
 
               text-[#4940d8]
 
-              mb-10
+              mb-8
+              md:mb-10
             "
             style={{
               fontFamily:
@@ -123,10 +128,12 @@ export default async function GestoIntimoPage() {
 
           <p
             className="
-              text-[15px]
+              text-[14px]
+              sm:text-[15px]
               md:text-[17px]
 
-              leading-[1.8]
+              leading-[1.75]
+              md:leading-[1.8]
 
               text-black/55
 
@@ -152,7 +159,8 @@ export default async function GestoIntimoPage() {
 
       <section
         className="
-          pb-40
+          pb-28
+          md:pb-40
         "
       >
 
@@ -161,7 +169,8 @@ export default async function GestoIntimoPage() {
             flex
             flex-col
 
-            gap-40
+            gap-24
+            md:gap-40
           "
         >
 
@@ -176,11 +185,12 @@ export default async function GestoIntimoPage() {
 
                 <div
                   className="
-                    px-6
-                    sm:px-8
+                    px-5
+                    sm:px-7
                     md:px-10
 
-                    mb-20
+                    mb-12
+                    md:mb-20
                   "
                 >
 
@@ -189,7 +199,8 @@ export default async function GestoIntimoPage() {
                       flex
                       flex-col
 
-                      gap-5
+                      gap-4
+                      md:gap-5
                     "
                   >
 
@@ -198,10 +209,13 @@ export default async function GestoIntimoPage() {
                         flex
                         flex-wrap
 
-                        gap-x-5
+                        gap-x-4
+                        md:gap-x-5
+
                         gap-y-2
 
-                        text-[13px]
+                        text-[12px]
+                        sm:text-[13px]
                         md:text-[14px]
 
                         text-black/45
@@ -234,10 +248,12 @@ export default async function GestoIntimoPage() {
 
                       <p
                         className="
-                          text-[15px]
+                          text-[14px]
+                          sm:text-[15px]
                           md:text-[17px]
 
-                          leading-[1.9]
+                          leading-[1.8]
+                          md:leading-[1.9]
 
                           text-black/55
 
@@ -263,9 +279,12 @@ export default async function GestoIntimoPage() {
 
                 <div
                   className="
-                    overflow-hidden
+                    overflow-x-auto
+                    md:overflow-hidden
 
                     w-full
+
+                    scrollbar-hide
                   "
                 >
 
@@ -276,9 +295,15 @@ export default async function GestoIntimoPage() {
                       flex
                       items-center
 
-                      gap-8
+                      gap-4
+                      sm:gap-5
+                      md:gap-8
 
                       w-max
+
+                      px-5
+                      sm:px-7
+                      md:px-0
                     "
                   >
 
@@ -299,13 +324,13 @@ export default async function GestoIntimoPage() {
 
                             ${
                               index % 3 === 0
-                                ? 'mt-20'
+                                ? 'md:mt-20'
                                 : ''
                             }
 
                             ${
                               index % 5 === 0
-                                ? '-mt-8'
+                                ? 'md:-mt-8'
                                 : ''
                             }
                           `}
@@ -324,7 +349,8 @@ export default async function GestoIntimoPage() {
                             }
 
                             className="
-                              h-[58vh]
+                              h-[34vh]
+                              sm:h-[44vh]
                               md:h-[68vh]
 
                               w-auto
@@ -332,6 +358,8 @@ export default async function GestoIntimoPage() {
                               object-contain
 
                               pointer-events-auto
+
+                              select-none
                             "
                           />
 
@@ -350,11 +378,12 @@ export default async function GestoIntimoPage() {
 
                   <div
                     className="
-                      px-6
-                      sm:px-8
+                      px-5
+                      sm:px-7
                       md:px-10
 
-                      mt-24
+                      mt-16
+                      md:mt-24
 
                       max-w-[620px]
                     "
@@ -362,10 +391,12 @@ export default async function GestoIntimoPage() {
 
                     <p
                       className="
-                        text-[15px]
+                        text-[14px]
+                        sm:text-[15px]
                         md:text-[17px]
 
-                        leading-[2]
+                        leading-[1.9]
+                        md:leading-[2]
 
                         tracking-[-0.02em]
 

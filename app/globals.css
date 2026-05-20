@@ -45,7 +45,7 @@ body {
 .gesto-track {
 
   animation:
-    gestoScroll 90s linear infinite;
+    gestoScroll 30s linear infinite;
 
   will-change: transform;
 }
