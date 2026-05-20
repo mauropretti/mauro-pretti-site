@@ -33,57 +33,60 @@ export async function sendContact(
 
   try {
 
-    await resend.emails.send({
+    const data =
+      await resend.emails.send({
 
-      from:
-        'Portfolio <onboarding@resend.dev>',
+        from:
+          'Portfolio <onboarding@resend.dev>',
 
-      to:
-        process.env.CONTACT_EMAIL || '',
+        to:
+          process.env.CONTACT_EMAIL || '',
 
-      subject:
-        `Nuevo mensaje de ${name}`,
+        subject:
+          `Nuevo mensaje de ${name}`,
 
-      replyTo:
-        email,
+        replyTo:
+          email,
 
-      html: `
-        <div
-          style="
-            font-family:
-              Arial,
-              sans-serif;
+        html: `
+          <div
+            style="
+              font-family:
+                Arial,
+                sans-serif;
 
-            padding:
-              24px;
-          "
-        >
+              padding:
+                24px;
+            "
+          >
 
-          <h2>
-            Nuevo mensaje desde el portfolio
-          </h2>
+            <h2>
+              Nuevo mensaje desde el portfolio
+            </h2>
 
-          <p>
-            <strong>Nombre:</strong>
-            ${name}
-          </p>
+            <p>
+              <strong>Nombre:</strong>
+              ${name}
+            </p>
 
-          <p>
-            <strong>Email:</strong>
-            ${email}
-          </p>
+            <p>
+              <strong>Email:</strong>
+              ${email}
+            </p>
 
-          <p>
-            <strong>Mensaje:</strong>
-          </p>
+            <p>
+              <strong>Mensaje:</strong>
+            </p>
 
-          <p>
-            ${message}
-          </p>
+            <p>
+              ${message}
+            </p>
 
-        </div>
-      `,
-    })
+          </div>
+        `,
+      })
+
+    console.log(data)
 
     return {
       success: true,
@@ -91,7 +94,7 @@ export async function sendContact(
 
   } catch (error) {
 
-    console.error(error)
+    console.log(error)
 
     throw new Error(
       'Error sending email'
