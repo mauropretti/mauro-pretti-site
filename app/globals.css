@@ -42,3 +42,47 @@ body {
   }
 
 }
+.gesto-track {
+
+  animation:
+    gestoScroll 90s linear infinite;
+
+  will-change: transform;
+}
+
+.gesto-track:hover {
+
+  animation-play-state: paused;
+}
+
+.gesto-item {
+
+  flex-shrink: 0;
+
+  position: relative;
+
+  transition:
+    transform 600ms ease,
+    opacity 600ms ease;
+}
+
+.gesto-item:hover {
+
+  transform: scale(0.985);
+
+  opacity: 0.95;
+}
+
+@keyframes gestoScroll {
+
+  from {
+
+    transform: translate3d(0,0,0);
+  }
+
+  to {
+
+    transform: translate3d(-35%,0,0);
+  }
+
+}

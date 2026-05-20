@@ -48,6 +48,7 @@ export default async function GestoIntimoPage() {
         bg-[#f4f4f1]
         text-black
         min-h-screen
+        overflow-hidden
       "
     >
 
@@ -68,11 +69,7 @@ export default async function GestoIntimoPage() {
         "
       >
 
-        <div
-          className="
-            max-w-[920px]
-          "
-        >
+        <div className="max-w-[920px]">
 
           <p
             className="
@@ -138,7 +135,7 @@ export default async function GestoIntimoPage() {
             style={{
               fontFamily:
                 'Inter, Helvetica, Arial, sans-serif',
-              }}
+            }}
           >
 
             Un recorrido visual centrado
@@ -155,10 +152,6 @@ export default async function GestoIntimoPage() {
 
       <section
         className="
-          px-6
-          sm:px-8
-          md:px-10
-
           pb-40
         "
       >
@@ -168,7 +161,7 @@ export default async function GestoIntimoPage() {
             flex
             flex-col
 
-            gap-36
+            gap-40
           "
         >
 
@@ -179,11 +172,15 @@ export default async function GestoIntimoPage() {
                 key={project._id}
               >
 
-                {/* HEADER */}
+                {/* INFO */}
 
                 <div
                   className="
-                    mb-14
+                    px-6
+                    sm:px-8
+                    md:px-10
+
+                    mb-20
                   "
                 >
 
@@ -196,67 +193,40 @@ export default async function GestoIntimoPage() {
                     "
                   >
 
-                    <div>
+                    <div
+                      className="
+                        flex
+                        flex-wrap
 
-                      <h2
-                        className="
-                          text-[26px]
-                          md:text-[40px]
+                        gap-x-5
+                        gap-y-2
 
-                          leading-[0.95]
+                        text-[13px]
+                        md:text-[14px]
 
-                          tracking-[-0.05em]
+                        text-black/45
+                      "
+                      style={{
+                        fontFamily:
+                          'Inter, Helvetica, Arial, sans-serif',
+                      }}
+                    >
 
-                          text-black
+                      {project.year && (
 
-                          mb-4
-                        "
-                        style={{
-                          fontFamily:
-                            'Inter, Helvetica, Arial, sans-serif',
-                        }}
-                      >
+                        <span>
+                          {project.year}
+                        </span>
 
-                        {project.title}
+                      )}
 
-                      </h2>
+                      {project.subtitle && (
 
-                      <div
-                        className="
-                          flex
-                          flex-wrap
+                        <span>
+                          {project.subtitle}
+                        </span>
 
-                          gap-x-5
-                          gap-y-2
-
-                          text-[13px]
-                          md:text-[14px]
-
-                          text-black/45
-                        "
-                        style={{
-                          fontFamily:
-                            'Inter, Helvetica, Arial, sans-serif',
-                        }}
-                      >
-
-                        {project.year && (
-
-                          <span>
-                            {project.year}
-                          </span>
-
-                        )}
-
-                        {project.subtitle && (
-
-                          <span>
-                            {project.subtitle}
-                          </span>
-
-                        )}
-
-                      </div>
+                      )}
 
                     </div>
 
@@ -289,59 +259,88 @@ export default async function GestoIntimoPage() {
 
                 </div>
 
-                {/* GRID */}
+                {/* HORIZONTAL DRIFT */}
 
                 <div
                   className="
-                    grid
-                    grid-cols-1
-                    sm:grid-cols-2
+                    overflow-hidden
 
-                    gap-5
-                    md:gap-6
+                    w-full
                   "
                 >
 
-                  {project.gallery?.map(
-                    (
-                      image: any,
-                      index: number
-                    ) => (
+                  <div
+                    className="
+                      gesto-track
 
-                      <div
-                        key={index}
+                      flex
+                      items-center
 
-                        className="
-                          overflow-hidden
+                      gap-8
 
-                          bg-[#ecece8]
-                        "
-                      >
+                      w-max
+                    "
+                  >
 
-                        <img
-                          src={
-                            urlFor(image)
-                              .width(1600)
-                              .quality(84)
-                              .url()
-                          }
+                    {[
+                      ...(project.gallery || []),
+                      ...(project.gallery || [])
+                    ].map(
+                      (
+                        image: any,
+                        index: number
+                      ) => (
 
-                          alt={
-                            project.title
-                          }
+                        <div
+                          key={index}
 
-                          className="
-                            w-full
-                            h-auto
+                          className={`
+                            gesto-item
 
-                            object-cover
-                          "
-                        />
+                            ${
+                              index % 3 === 0
+                                ? 'mt-20'
+                                : ''
+                            }
 
-                      </div>
+                            ${
+                              index % 5 === 0
+                                ? '-mt-8'
+                                : ''
+                            }
+                          `}
+                        >
 
-                    )
-                  )}
+                          <img
+                            src={
+                              urlFor(image)
+                                .width(1600)
+                                .quality(84)
+                                .url()
+                            }
+
+                            alt={
+                              project.title
+                            }
+
+                            className="
+                              h-[58vh]
+                              md:h-[68vh]
+
+                              w-auto
+
+                              object-contain
+
+                              pointer-events-auto
+                            "
+                          />
+
+                        </div>
+
+                      )
+                    )}
+
+                  </div>
 
                 </div>
 
@@ -351,7 +350,11 @@ export default async function GestoIntimoPage() {
 
                   <div
                     className="
-                      mt-16
+                      px-6
+                      sm:px-8
+                      md:px-10
+
+                      mt-24
 
                       max-w-[620px]
                     "
