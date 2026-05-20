@@ -205,12 +205,11 @@ export default async function HomePage() {
     z-50
 
     flex
-    flex-wrap
 
-    items-center
+    items-end
 
-    gap-x-6
-    gap-y-3
+    gap-x-5
+    sm:gap-x-6
 
     mt-7
     sm:mt-8
@@ -220,38 +219,80 @@ export default async function HomePage() {
   {/* LIGHTROOM */}
 
   <div
-  className="
-    flex
-    flex-col
-
-    leading-none
-  "
->
-
-  <span
     className="
-      text-[9px]
+      flex
+      flex-col
 
-      uppercase
-
-      tracking-[0.12em]
-
-      text-black/40
-
-      mb-[6px]
+ items-end
+      mr-1
     "
-    style={{
-      fontFamily:
-        'Satoshi, Inter, sans-serif',
-    }}
   >
 
-    Curso
+    <span
+  className="
+    inline-flex
 
-  </span>
+    
+
+    bg-black/70
+
+    px-[3px]
+    py-[2px]
+
+    text-[7px]
+
+    uppercase
+
+    tracking-[0.12em]
+
+    text-white
+
+    leading-none
+
+    -mb-[3px]
+  "
+  style={{
+    fontFamily:
+      'Satoshi, Inter, sans-serif',
+  }}
+>
+
+  Curso
+
+</span>
+
+    <AppLink
+      href="/lightroom"
+
+      className="
+        text-[13px]
+        sm:text-[14px]
+
+        tracking-[-0.03em]
+
+        text-black/80
+
+        transition-opacity
+        duration-500
+
+        hover:opacity-40
+      "
+      style={{
+        fontFamily:
+          'Satoshi, Inter, sans-serif',
+      }}
+    >
+
+      Lightroom
+
+    </AppLink>
+
+  </div>
+
+  {/* PUBLICITARIA */}
 
   <AppLink
-    href="/lightroom"
+    href="/publicitaria"
 
     className="
       text-[13px]
@@ -259,7 +300,7 @@ export default async function HomePage() {
 
       tracking-[-0.03em]
 
-      text-black/80
+      text-black/55
 
       transition-opacity
       duration-500
@@ -269,34 +310,30 @@ export default async function HomePage() {
     style={{
       fontFamily:
         'Satoshi, Inter, sans-serif',
-      }}
+    }}
   >
 
-    Lightroom
+    Publicitaria
 
   </AppLink>
 
-</div>
+  {/* TEATRO */}
 
-  {/* INLINE LINKS */}
+  <AppLink
+    href="/teatro"
 
-  <div
     className="
-      flex
-      flex-wrap
-
-      items-center
-
-      gap-x-5
-      sm:gap-x-6
-
       text-[13px]
       sm:text-[14px]
-      md:text-[15px]
 
       tracking-[-0.03em]
 
       text-black/55
+
+      transition-opacity
+      duration-500
+
+      hover:opacity-40
     "
     style={{
       fontFamily:
@@ -304,52 +341,37 @@ export default async function HomePage() {
     }}
   >
 
-    <AppLink
-      href="/publicitaria"
+    Teatro
 
-      className="
-        transition-opacity
-        duration-500
+  </AppLink>
 
-        hover:opacity-40
-      "
-    >
+  {/* GESTO */}
 
-      Publicitaria
+  <AppLink
+    href="/el-gesto-intimo"
 
-    </AppLink>
+    className="
+      text-[13px]
+      sm:text-[14px]
 
-    <AppLink
-      href="/teatro"
+      tracking-[-0.03em]
 
-      className="
-        transition-opacity
-        duration-500
+      text-black/55
 
-        hover:opacity-40
-      "
-    >
+      transition-opacity
+      duration-500
 
-      Teatro
+      hover:opacity-40
+    "
+    style={{
+      fontFamily:
+        'Satoshi, Inter, sans-serif',
+    }}
+  >
 
-    </AppLink>
+    El gesto íntimo
 
-    <AppLink
-      href="/el-gesto-intimo"
-
-      className="
-        transition-opacity
-        duration-500
-
-        hover:opacity-40
-      "
-    >
-
-      El gesto íntimo
-
-    </AppLink>
-
-  </div>
+  </AppLink>
 
 </div>
 
