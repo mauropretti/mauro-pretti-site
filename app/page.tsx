@@ -1,12 +1,12 @@
 import Script from 'next/script'
 
 import Navbar from './components/Navbar'
-import ParallaxImage from './components/ParallaxImage'
+import ProjectLink from './components/ProjectLink'
+import AppLink from './components/AppLink'
 
 export const dynamic = 'force-dynamic'
 
 import {client} from '@/sanity/client'
-import {urlFor} from '@/sanity/image'
 
 async function getProjects() {
 
@@ -62,7 +62,7 @@ export default async function HomePage() {
 
       <Navbar />
 
-      {/* FIXED LOGO */}
+      {/* LOGO */}
 
       <div
         className="
@@ -75,28 +75,22 @@ export default async function HomePage() {
         "
       >
 
-        <a href="/">
+        <AppLink href="/">
 
           <div
             className="
               text-[#3c4696]
-
               leading-none
-
               tracking-[-0.0em]
-
               font-normal
-
               select-none
             "
             style={{
-
               fontFamily:
                 '"Adobe Text Pro", serif',
 
               fontSize:
                 'clamp(28px, 2.6vw, 42px)',
-
             }}
           >
 
@@ -104,7 +98,7 @@ export default async function HomePage() {
 
           </div>
 
-        </a>
+        </AppLink>
 
       </div>
 
@@ -113,7 +107,11 @@ export default async function HomePage() {
       <section
         className="
           fixed
-          inset-0
+          top-0
+          left-0
+          right-0
+
+          h-auto
 
           z-30
 
@@ -124,6 +122,8 @@ export default async function HomePage() {
           pt-28
           sm:pt-32
           md:pt-40
+
+          pointer-events-none
         "
       >
 
@@ -198,45 +198,51 @@ export default async function HomePage() {
 
           </p>
 
-          <a
-            href="/lightroom"
-
+          <div
             className="
-              inline-flex
-
-              mt-7
-              sm:mt-8
-
-              rounded-full
-
-              border
-              border-black/10
-
-              px-4
-              py-2
-
-              text-[12px]
-              sm:text-[13px]
-
-              tracking-[-0.02em]
-
-              text-black/80
-
-              transition-all
-              duration-500
-
-              hover:bg-black
-              hover:text-white
+              pointer-events-auto
+              relative
+              z-50
             "
-            style={{
-              fontFamily:
-                'Satoshi, Inter, sans-serif',
-            }}
           >
 
-            Curso Lightroom
+            <AppLink
+              href="/lightroom"
 
-          </a>
+              className="
+                inline-flex
+
+                mt-7
+                sm:mt-8
+
+                rounded-full
+
+                border
+                border-black/10
+
+                px-4
+                py-2
+
+                text-[12px]
+                sm:text-[13px]
+
+                tracking-[-0.02em]
+
+                text-black/80
+
+                transition-all
+                duration-500
+
+                hover:bg-black
+                hover:text-white
+              "
+            >
+
+              Curso Lightroom
+
+            </AppLink>
+
+          </div>
 
         </div>
 
@@ -260,54 +266,11 @@ export default async function HomePage() {
 
           {mixedImages.map((item: any, index: number) => (
 
-            <a
+            <ProjectLink
               key={index}
-              href={`/projects/${item.slug}`}
-              className={`
-                group
-                block
-                mb-20
-                md:mb-28
-
-                ${
-                  index % 4 === 0
-                    ? 'self-start ml-[8vw]'
-                    : index % 4 === 1
-                    ? 'self-end mr-[10vw]'
-                    : index % 4 === 2
-                    ? 'self-center'
-                    : 'self-start ml-[18vw]'
-                }
-              `}
-            >
-
-              {/* IMAGE */}
-
-              <div
-                className={`
-                  overflow-visible
-                  bg-[#ecece8]
-
-                  ${
-                    index % 4 === 0
-                      ? 'w-[72vw] sm:w-[58vw] md:w-[28vw] lg:w-[32vw]'
-                      : index % 4 === 1
-                      ? 'w-[58vw] sm:w-[46vw] md:w-[22vw] lg:w-[26vw]'
-                      : index % 4 === 2
-                      ? 'w-[84vw] sm:w-[72vw] md:w-[36vw] lg:w-[40vw]'
-                      : 'w-[64vw] sm:w-[52vw] md:w-[24vw] lg:w-[28vw]'
-                  }
-                `}
-              >
-
-                <ParallaxImage
-                  src={urlFor(item.image).width(1600).url()}
-                  alt={item.title}
-                />
-
-              </div>
-
-            </a>
+              item={item}
+              index={index}
+            />
 
           ))}
 
@@ -315,39 +278,8 @@ export default async function HomePage() {
 
       </section>
 
-      <Script id="intro-fade">
+      {/* REFRESH HOME */}
 
-        {`
-          const handleScroll = () => {
-
-            const intro =
-              document.getElementById(
-                'intro-content'
-              )
-
-            if (!intro) return
-
-            const scrollY =
-              window.scrollY
-
-            const opacity =
-              Math.max(
-                1 - scrollY / 400,
-                0
-              )
-
-            intro.style.opacity =
-              opacity.toString()
-
-          }
-
-          window.addEventListener(
-            'scroll',
-            handleScroll
-          )
-        `}
-
-      </Script>
 
     </main>
 

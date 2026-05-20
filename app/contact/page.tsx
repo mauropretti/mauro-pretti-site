@@ -1,6 +1,7 @@
 export const dynamic = 'force-dynamic'
 
 import Navbar from '../components/Navbar'
+import AppLink from '../components/AppLink'
 
 import {client} from '@/sanity/client'
 
@@ -45,36 +46,36 @@ export default async function ContactPage() {
         "
       >
 
-        <a href="/">
+        <AppLink href="/">
 
-  <div
-    className="
-      text-[#3c4696]
+          <div
+            className="
+              text-[#3c4696]
 
-      leading-none
+              leading-none
 
-      tracking-[-0.0em]
+              tracking-[-0.0em]
 
-      font-normal
+              font-normal
 
-      select-none
-    "
-    style={{
+              select-none
+            "
+            style={{
 
-      fontFamily:
-        '"Adobe Text Pro", serif',
+              fontFamily:
+                '"Adobe Text Pro", serif',
 
-      fontSize:
-        'clamp(28px, 2.6vw, 42px)',
+              fontSize:
+                'clamp(28px, 2.6vw, 42px)',
 
-    }}
-  >
+            }}
+          >
 
-    mauropretti
+            mauropretti
 
-  </div>
+          </div>
 
-</a>
+        </AppLink>
 
       </div>
 
@@ -211,6 +212,8 @@ export default async function ContactPage() {
               <a
                 href={contact.instagramUrl}
                 target="_blank"
+                rel="noopener noreferrer"
+
                 className="
                   hover:text-black
                   transition
@@ -227,6 +230,8 @@ export default async function ContactPage() {
               <a
                 href={contact.behanceUrl}
                 target="_blank"
+                rel="noopener noreferrer"
+
                 className="
                   hover:text-black
                   transition
@@ -243,6 +248,8 @@ export default async function ContactPage() {
               <a
                 href={`https://wa.me/${contact.whatsapp}`}
                 target="_blank"
+                rel="noopener noreferrer"
+
                 className="
                   hover:text-black
                   transition

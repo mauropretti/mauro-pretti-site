@@ -1,3 +1,5 @@
+import AppLink from './AppLink'
+
 export default function Navbar() {
 
   return (
@@ -61,8 +63,9 @@ export default function Navbar() {
             "
           >
 
-            <a
+            <AppLink
               href="/projects"
+
               className="
                 hover:opacity-60
                 transition
@@ -70,10 +73,11 @@ export default function Navbar() {
               "
             >
               Proyectos
-            </a>
+            </AppLink>
 
-            <a
+            <AppLink
               href="/biography"
+
               className="
                 hover:opacity-60
                 transition
@@ -81,7 +85,7 @@ export default function Navbar() {
               "
             >
               Bio
-            </a>
+            </AppLink>
 
           </div>
 
@@ -97,8 +101,9 @@ export default function Navbar() {
 
           {/* CONTACT */}
 
-          <a
+          <AppLink
             href="/contact"
+
             className="
               hover:opacity-60
               transition
@@ -106,7 +111,7 @@ export default function Navbar() {
             "
           >
             Contacto
-          </a>
+          </AppLink>
 
         </nav>
 
