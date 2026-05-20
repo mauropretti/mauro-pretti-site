@@ -1,5 +1,5 @@
 export const dynamic = 'force-dynamic'
-
+import ContactForm from '../components/ContactForm'
 import Navbar from '../components/Navbar'
 import AppLink from '../components/AppLink'
 
@@ -264,6 +264,12 @@ export default async function ContactPage() {
           </div>
 
         </div>
+
+        <div className="mt-24">
+
+  <ContactForm />
+
+</div>
 
       </section>
 
