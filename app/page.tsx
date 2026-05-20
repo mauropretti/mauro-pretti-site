@@ -205,52 +205,40 @@ export default async function HomePage() {
     z-50
 
     flex
-    flex-nowrap
+    flex-wrap
 
     items-center
 
-    gap-x-5
-    sm:gap-x-6
+    gap-x-6
+    gap-y-3
 
     mt-7
     sm:mt-8
-
-    overflow-x-auto
-
-    whitespace-nowrap
-
-    pb-1
   "
 >
 
   {/* LIGHTROOM */}
 
-  <AppLink
-    href="/lightroom"
+  <div
+  className="
+    flex
+    flex-col
 
+    leading-none
+  "
+>
+
+  <span
     className="
-      inline-flex
+      text-[9px]
 
-      rounded-full
+      uppercase
 
-      border
-      border-black/10
+      tracking-[0.12em]
 
-      px-4
-      py-2
+      text-black/40
 
-      text-[12px]
-      sm:text-[13px]
-
-      tracking-[-0.02em]
-
-      text-black/80
-
-      transition-all
-      duration-500
-
-      hover:bg-black
-      hover:text-white
+      mb-[6px]
     "
     style={{
       fontFamily:
@@ -258,9 +246,37 @@ export default async function HomePage() {
     }}
   >
 
-    Curso Lightroom
+    Curso
+
+  </span>
+
+  <AppLink
+    href="/lightroom"
+
+    className="
+      text-[13px]
+      sm:text-[14px]
+
+      tracking-[-0.03em]
+
+      text-black/80
+
+      transition-opacity
+      duration-500
+
+      hover:opacity-40
+    "
+    style={{
+      fontFamily:
+        'Satoshi, Inter, sans-serif',
+      }}
+  >
+
+    Lightroom
 
   </AppLink>
+
+</div>
 
   {/* INLINE LINKS */}
 
