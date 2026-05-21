@@ -322,15 +322,44 @@ export default async function GestoIntimoPage() {
                           className={`
                             gesto-item
 
+                            flex-shrink-0
+
+                            transition-transform
+                            duration-700
+
+                            ${
+                              index % 2 === 0
+                                ? 'md:mt-14'
+                                : ''
+                            }
+
                             ${
                               index % 3 === 0
-                                ? 'md:mt-20'
+                                ? 'md:-mt-8'
+                                : ''
+                            }
+
+                            ${
+                              index % 4 === 0
+                                ? '-ml-3 md:-ml-5'
                                 : ''
                             }
 
                             ${
                               index % 5 === 0
-                                ? 'md:-mt-8'
+                                ? 'mr-8'
+                                : 'mr-3'
+                            }
+
+                            ${
+                              index % 6 === 0
+                                ? 'scale-[0.92]'
+                                : ''
+                            }
+
+                            ${
+                              index % 7 === 0
+                                ? 'scale-[1.04]'
                                 : ''
                             }
                           `}
@@ -348,11 +377,7 @@ export default async function GestoIntimoPage() {
                               project.title
                             }
 
-                            className="
-                              h-[34vh]
-                              sm:h-[44vh]
-                              md:h-[68vh]
-
+                            className={`
                               w-auto
 
                               object-contain
@@ -360,7 +385,28 @@ export default async function GestoIntimoPage() {
                               pointer-events-auto
 
                               select-none
-                            "
+
+                              transition-all
+                              duration-700
+
+                              ${
+                                index % 3 === 0
+                                  ? 'h-[28vh] sm:h-[34vh] md:h-[54vh]'
+                                  : ''
+                              }
+
+                              ${
+                                index % 3 === 1
+                                  ? 'h-[38vh] sm:h-[48vh] md:h-[76vh]'
+                                  : ''
+                              }
+
+                              ${
+                                index % 3 === 2
+                                  ? 'h-[32vh] sm:h-[40vh] md:h-[62vh]'
+                                  : ''
+                              }
+                            `}
                           />
 
                         </div>

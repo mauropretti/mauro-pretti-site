@@ -50,7 +50,7 @@ body {
   will-change: transform;
 }
 
-.gesto-track:hover {
+.gesto-track:has(.gesto-item:hover) {
 
   animation-play-state: paused;
 }
