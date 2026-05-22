@@ -279,7 +279,7 @@ export default function GestoIntimoPage() {
         className="
           relative
 
-          h-[52vh]
+          h-[60vh]
           sm:h-[56vh]
           md:h-[64vh]
         "
