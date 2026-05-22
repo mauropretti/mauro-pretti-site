@@ -112,8 +112,8 @@ export default function GestoIntimoPage() {
               pt-12
               sm:pt-14
               md:pt-18
-              
-              
+              w-[980px]
+              max-w-[calc(100%-40px)]
             "
           >
 
@@ -273,13 +273,14 @@ export default function GestoIntimoPage() {
 
       </div>
 
-      {/* SPACER */}
+      {/* SPACER — en mobile más alto para que el hero no tape la galería */}
 
       <section
         className="
           relative
 
-          h-[46vh]
+          h-[110vh]
+          sm:h-[90vh]
           md:h-[64vh]
         "
       />
