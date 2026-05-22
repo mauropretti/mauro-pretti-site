@@ -112,8 +112,8 @@ export default function GestoIntimoPage() {
               pt-12
               sm:pt-14
               md:pt-18
-              w-[980px]
-              max-w-[calc(100%-40px)]
+              
+              
             "
           >
 
