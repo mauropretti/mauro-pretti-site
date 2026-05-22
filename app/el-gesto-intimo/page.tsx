@@ -79,99 +79,45 @@ export default function GestoIntimoPage() {
 
       <Header />
 
-      {/* FIXED OVERLAY HERO */}
+      {/* FIXED OVERLAY HERO — mismo sistema exacto que Header */}
 
       <div
         className="
           fixed
-
           inset-0
-
-          px-5
-          sm:px-7
-          md:px-10
-
-          pt-16
-          sm:pt-20
-          md:pt-24
-
           z-30
-
           pointer-events-none
         "
       >
 
-        <div className="max-w-[1180px]">
+        {/* capa centrada igual que Header */}
+        <div
+          className="
+            relative
+            w-full
+            max-w-[1580px]
+            h-full
+            mx-auto
+          "
+        >
 
-          {/* LABEL */}
-
-          <motion.div
-            style={{
-              opacity:
-                infoOpacity,
-            }}
-          >
-
-            <p
-              className="
-                text-[11px]
-                sm:text-[12px]
-                md:text-[13px]
-
-                lowercase
-
-                tracking-[-0.01em]
-
-                text-[#4940d8]/70
-
-                mb-5
-              "
-              style={{
-                fontFamily:
-                  'Inter, Helvetica, Arial, sans-serif',
-              }}
-            >
-
-              pieza expositiva / narrativa visual
-
-            </p>
-
-          </motion.div>
-
-          {/* FIXED TITLE */}
-
-          <h1
+          {/* contenido pegado top-left igual que el logo */}
+          <div
             className="
-           editorial-title
-
-    sticky
-    top-10
-    md:top-14
-
-    z-50
-
-    opacity-90
-
-    mix-blend-multiply
-
-    text-[42px]
-    sm:text-[56px]
-    md:text-[82px]
-    lg:text-[110px]
-
-    tracking-[-0.03em]
-
-    mb-5
+              absolute
+              top-3
+              left-5
+              md:top-6
+              md:left-8
+              pt-12
+              sm:pt-14
+              md:pt-18
+              w-[980px]
+              max-w-[calc(100%-40px)]
             "
           >
 
-            EL GESTO ÍNTIMO
-
-          </h1>
-
-          {/* CURATORIAL */}
-
-          {projects?.[0] && (
+            {/* LABEL */}
 
             <motion.div
               style={{
@@ -180,23 +126,19 @@ export default function GestoIntimoPage() {
               }}
             >
 
-              <div
+              <p
                 className="
-                  flex
-                  flex-wrap
+                  text-[11px]
+                  sm:text-[12px]
+                  md:text-[13px]
 
-                  gap-x-4
-                  md:gap-x-5
+                  lowercase
 
-                  gap-y-2
+                  tracking-[-0.01em]
 
-                  text-[12px]
-                  sm:text-[13px]
-                  md:text-[14px]
+                  text-[#4940d8]/70
 
-                  text-black/45
-
-                  mb-6
+                  mb-5
                 "
                 style={{
                   fontFamily:
@@ -204,40 +146,71 @@ export default function GestoIntimoPage() {
                 }}
               >
 
-                {projects[0].year && (
+                pieza expositiva / narrativa visual
 
-                  <span>
-                    {projects[0].year}
-                  </span>
+              </p>
 
-                )}
+            </motion.div>
 
-                {projects[0].subtitle && (
+            {/* FIXED TITLE */}
 
-                  <span>
-                    {projects[0].subtitle}
-                  </span>
+            <h1
+              className="
+                editorial-title
 
-                )}
+                sticky
+                top-10
+                md:top-14
 
-              </div>
+                z-50
 
-              {projects[0].curatorialText && (
+                opacity-90
 
-                <p
+                mix-blend-multiply
+
+                text-[42px]
+                sm:text-[56px]
+                md:text-[82px]
+                lg:text-[110px]
+
+                tracking-[-0.03em]
+
+                mb-5
+              "
+            >
+
+              EL GESTO ÍNTIMO
+
+            </h1>
+
+            {/* CURATORIAL */}
+
+            {projects?.[0] && (
+
+              <motion.div
+                style={{
+                  opacity:
+                    infoOpacity,
+                }}
+              >
+
+                <div
                   className="
-                    text-[22px]
-                    sm:text-[26px]
-                    md:text-[34px]
+                    flex
+                    flex-wrap
 
-                    leading-[1.3]
-                    md:leading-[1.28]
+                    gap-x-4
+                    md:gap-x-5
 
-                    tracking-[-0.035em]
+                    gap-y-2
 
-                    text-black/80
+                    text-[12px]
+                    sm:text-[13px]
+                    md:text-[14px]
 
-                    max-w-[1180px]
+                    text-black/45
+
+                    mb-6
                   "
                   style={{
                     fontFamily:
@@ -245,15 +218,56 @@ export default function GestoIntimoPage() {
                   }}
                 >
 
-                  {projects[0].curatorialText}
+                  {projects[0].year && (
 
-                </p>
+                    <span>
+                      {projects[0].year}
+                    </span>
 
-              )}
+                  )}
 
-            </motion.div>
+                  {projects[0].subtitle && (
 
-          )}
+                    <span>
+                      {projects[0].subtitle}
+                    </span>
+
+                  )}
+
+                </div>
+
+                {projects[0].curatorialText && (
+
+                  <p
+                    className="
+                      text-[22px]
+                      sm:text-[26px]
+                      md:text-[34px]
+
+                      leading-[1.3]
+                      md:leading-[1.28]
+
+                      tracking-[-0.035em]
+
+                      text-black/80
+                    "
+                    style={{
+                      fontFamily:
+                        'Inter, Helvetica, Arial, sans-serif',
+                    }}
+                  >
+
+                    {projects[0].curatorialText}
+
+                  </p>
+
+                )}
+
+              </motion.div>
+
+            )}
+
+          </div>
 
         </div>
 
