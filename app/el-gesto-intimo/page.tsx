@@ -1,10 +1,19 @@
 // app/el-gesto-intimo/page.tsx
 
+'use client'
+
 import Header from '../components/Header'
 
 import {client} from '@/sanity/client'
-
 import {urlFor} from '@/sanity/image'
+
+import {
+  motion,
+  useScroll,
+  useTransform,
+} from 'framer-motion'
+
+import {useEffect, useState} from 'react'
 
 export const dynamic = 'force-dynamic'
 
@@ -36,10 +45,26 @@ async function getGestoIntimoProjects() {
 
 }
 
-export default async function GestoIntimoPage() {
+export default function GestoIntimoPage() {
 
-  const projects =
-    await getGestoIntimoProjects()
+  const [projects, setProjects] =
+    useState<any[]>([])
+
+  useEffect(() => {
+
+    getGestoIntimoProjects()
+      .then(setProjects)
+
+  }, [])
+
+  const {scrollY} = useScroll()
+
+  const infoOpacity =
+    useTransform(
+      scrollY,
+      [0, 220],
+      [1, 0]
+    )
 
   return (
 
@@ -54,111 +79,205 @@ export default async function GestoIntimoPage() {
 
       <Header />
 
-      {/* HERO */}
+      {/* FIXED OVERLAY HERO */}
 
-      <section
+      <div
         className="
+          fixed
+
+          inset-0
+
           px-5
           sm:px-7
           md:px-10
 
-          pt-24
-          sm:pt-28
-          md:pt-40
+          pt-16
+          sm:pt-20
+          md:pt-24
 
-          pb-16
-          md:pb-20
+          z-30
+
+          pointer-events-none
         "
       >
 
-        <div className="max-w-[920px]">
+        <div className="max-w-[1180px]">
 
-          <p
-            className="
-              text-[11px]
-              sm:text-[12px]
-              md:text-[13px]
+          {/* LABEL */}
 
-              lowercase
-
-              tracking-[-0.01em]
-
-              text-[#4940d8]/70
-
-              mb-5
-              md:mb-6
-            "
+          <motion.div
             style={{
-              fontFamily:
-                'Inter, Helvetica, Arial, sans-serif',
+              opacity:
+                infoOpacity,
             }}
           >
 
-            pieza expositiva / narrativa visual
+            <p
+              className="
+                text-[11px]
+                sm:text-[12px]
+                md:text-[13px]
 
-          </p>
+                lowercase
+
+                tracking-[-0.01em]
+
+                text-[#4940d8]/70
+
+                mb-5
+              "
+              style={{
+                fontFamily:
+                  'Inter, Helvetica, Arial, sans-serif',
+              }}
+            >
+
+              pieza expositiva / narrativa visual
+
+            </p>
+
+          </motion.div>
+
+          {/* FIXED TITLE */}
 
           <h1
             className="
-              text-[32px]
-              sm:text-[42px]
-              md:text-[58px]
-              lg:text-[68px]
+           editorial-title
 
-              leading-[0.92]
+    sticky
+    top-10
+    md:top-14
 
-              tracking-[-0.06em]
+    z-50
 
-              font-light
+    opacity-90
 
-              text-[#4940d8]
+    mix-blend-multiply
 
-              mb-8
-              md:mb-10
+    text-[42px]
+    sm:text-[56px]
+    md:text-[82px]
+    lg:text-[110px]
+
+    tracking-[-0.03em]
+
+    mb-5
             "
-            style={{
-              fontFamily:
-                'Inter, Helvetica, Arial, sans-serif',
-            }}
           >
 
-            El gesto íntimo
+            EL GESTO ÍNTIMO
 
           </h1>
 
-          <p
-            className="
-              text-[14px]
-              sm:text-[15px]
-              md:text-[17px]
+          {/* CURATORIAL */}
 
-              leading-[1.75]
-              md:leading-[1.8]
+          {projects?.[0] && (
 
-              text-black/55
+            <motion.div
+              style={{
+                opacity:
+                  infoOpacity,
+              }}
+            >
 
-              max-w-[760px]
-            "
-            style={{
-              fontFamily:
-                'Inter, Helvetica, Arial, sans-serif',
-            }}
-          >
+              <div
+                className="
+                  flex
+                  flex-wrap
 
-            Un recorrido visual centrado
-            en el cuerpo, la memoria,
-            la intimidad y la presencia.
+                  gap-x-4
+                  md:gap-x-5
 
-          </p>
+                  gap-y-2
+
+                  text-[12px]
+                  sm:text-[13px]
+                  md:text-[14px]
+
+                  text-black/45
+
+                  mb-6
+                "
+                style={{
+                  fontFamily:
+                    'Inter, Helvetica, Arial, sans-serif',
+                }}
+              >
+
+                {projects[0].year && (
+
+                  <span>
+                    {projects[0].year}
+                  </span>
+
+                )}
+
+                {projects[0].subtitle && (
+
+                  <span>
+                    {projects[0].subtitle}
+                  </span>
+
+                )}
+
+              </div>
+
+              {projects[0].curatorialText && (
+
+                <p
+                  className="
+                    text-[22px]
+                    sm:text-[26px]
+                    md:text-[34px]
+
+                    leading-[1.3]
+                    md:leading-[1.28]
+
+                    tracking-[-0.035em]
+
+                    text-black/80
+
+                    max-w-[1180px]
+                  "
+                  style={{
+                    fontFamily:
+                      'Inter, Helvetica, Arial, sans-serif',
+                  }}
+                >
+
+                  {projects[0].curatorialText}
+
+                </p>
+
+              )}
+
+            </motion.div>
+
+          )}
 
         </div>
 
-      </section>
+      </div>
+
+      {/* SPACER */}
+
+      <section
+        className="
+          relative
+
+          h-[46vh]
+          md:h-[64vh]
+        "
+      />
 
       {/* PROJECTS */}
 
       <section
         className="
+          relative
+
+          z-10
+
           pb-28
           md:pb-40
         "
@@ -180,100 +299,6 @@ export default async function GestoIntimoPage() {
               <article
                 key={project._id}
               >
-
-                {/* INFO */}
-
-                <div
-                  className="
-                    px-5
-                    sm:px-7
-                    md:px-10
-
-                    mb-12
-                    md:mb-20
-                  "
-                >
-
-                  <div
-                    className="
-                      flex
-                      flex-col
-
-                      gap-4
-                      md:gap-5
-                    "
-                  >
-
-                    <div
-                      className="
-                        flex
-                        flex-wrap
-
-                        gap-x-4
-                        md:gap-x-5
-
-                        gap-y-2
-
-                        text-[12px]
-                        sm:text-[13px]
-                        md:text-[14px]
-
-                        text-black/45
-                      "
-                      style={{
-                        fontFamily:
-                          'Inter, Helvetica, Arial, sans-serif',
-                      }}
-                    >
-
-                      {project.year && (
-
-                        <span>
-                          {project.year}
-                        </span>
-
-                      )}
-
-                      {project.subtitle && (
-
-                        <span>
-                          {project.subtitle}
-                        </span>
-
-                      )}
-
-                    </div>
-
-                    {project.curatorialText && (
-
-                      <p
-                        className="
-                          text-[14px]
-                          sm:text-[15px]
-                          md:text-[17px]
-
-                          leading-[1.8]
-                          md:leading-[1.9]
-
-                          text-black/55
-
-                          max-w-[760px]
-                        "
-                        style={{
-                          fontFamily:
-                            'Inter, Helvetica, Arial, sans-serif',
-                        }}
-                      >
-
-                        {project.curatorialText}
-
-                      </p>
-
-                    )}
-
-                  </div>
-
-                </div>
 
                 {/* HORIZONTAL DRIFT */}
 
@@ -431,28 +456,27 @@ export default async function GestoIntimoPage() {
                       mt-16
                       md:mt-24
 
-                      max-w-[620px]
+                      max-w-[980px]
                     "
                   >
 
                     <p
                       className="
-                        text-[14px]
-                        sm:text-[15px]
-                        md:text-[17px]
+                        text-[20px]
+                        sm:text-[24px]
+                        md:text-[18px]
 
-                        leading-[1.9]
-                        md:leading-[2]
+                        leading-[1.42]
 
-                        tracking-[-0.02em]
+                        tracking-[-0.035em]
 
-                        text-black/45
+                        text-black/80
 
                         whitespace-pre-line
                       "
                       style={{
                         fontFamily:
-                          '"Adobe Text Pro", serif',
+                          'Inter, Helvetica, Arial, sans-serif',
                       }}
                     >
 

@@ -86,3 +86,89 @@ body {
   }
 
 }
+.editorial-title {
+
+  color: #E0B100;
+
+  font-family:
+    "Bebas Neue",
+    sans-serif;
+
+  letter-spacing: -0.02em;
+
+  line-height: 0.9;
+}
+.gesture-fade {
+
+  animation:
+    gestureFade linear forwards;
+
+  animation-timeline:
+    view();
+
+  animation-range:
+    exit 0% exit 45%;
+}
+
+@keyframes gestureFade {
+
+  from {
+
+    opacity: 1;
+
+    filter: blur(0px);
+  }
+
+  to {
+
+    opacity: 0;
+
+    filter: blur(10px);
+  }
+}
+/* GESTO HERO FADE */
+
+.gesture-fade {
+
+  animation:
+    gestureFade linear forwards;
+
+  animation-timeline:
+    view();
+
+  animation-range:
+    exit 0% exit 28%;
+
+  will-change:
+    opacity,
+    filter,
+    transform;
+}
+
+.gesture-fade {
+
+  animation:
+    gestureFade linear forwards;
+
+  animation-timeline:
+    view();
+
+  animation-range:
+    exit 0% exit 22%;
+
+  will-change:
+    opacity;
+}
+
+@keyframes gestureFade {
+
+  from {
+
+    opacity: 1;
+  }
+
+  to {
+
+    opacity: 0;
+  }
+}
