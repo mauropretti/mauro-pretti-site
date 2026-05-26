@@ -177,3 +177,10 @@ body {
   overscroll-behavior-x: contain;
 
 }
+.gesto-scroll-mobile {
+
+  overscroll-behavior-inline: contain;
+
+  -webkit-overflow-scrolling: touch;
+
+}

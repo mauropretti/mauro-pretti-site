@@ -324,7 +324,7 @@ export default function GestoIntimoPage() {
 
                     w-full
 
-                    scrollbar-hide gesto-mobile-scroll
+                    scrollbar-hide gesto-scroll-mobile
                   "
                 >
 
