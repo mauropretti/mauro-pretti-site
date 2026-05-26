@@ -318,17 +318,15 @@ export default function GestoIntimoPage() {
                 {/* HORIZONTAL DRIFT */}
 
                 <div
-  className="
-    overflow-x-auto
-    md:overflow-hidden
+                  className="
+                    overflow-x-auto
+                    md:overflow-hidden
 
-    w-full
+                    w-full
 
-    scrollbar-hide
-
-    touch-pan-y
-  "
->
+                    scrollbar-hide gesto-mobile-scroll
+                  "
+                >
 
                   <div
                     className="

@@ -172,3 +172,8 @@ body {
     opacity: 0;
   }
 }
+.gesto-mobile-scroll {
+
+  overscroll-behavior-x: contain;
+
+}
