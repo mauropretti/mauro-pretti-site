@@ -10,7 +10,7 @@ import {urlFor} from '@/sanity/image'
 async function getProjects() {
 
   return client.fetch(`
-    *[_type == "project"] | order(order asc) {
+    *[_type == "project"] | order(coalesce(order, 999) asc) {
 
       _id,
       title,
