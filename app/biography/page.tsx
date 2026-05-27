@@ -84,33 +84,22 @@ export default function BiographyPage() {
           >
 
             <p>
-              (1986) Paraná, Entre Ríos, Argentina.
+(1986) Paraná, Entre Ríos, Argentina.            </p>
+
+            <p>
+              Fotógrafo. Estudió y se graduó en la Escuela de Fotografía Creativa Andy Goldstein en 2017. Actualmente desarrolla su práctica y reside en Buenos Aires.
             </p>
 
             <p>
-              Fotógrafo. Estudió y se graduó en la Escuela de
-              Fotografía Creativa Andy Goldstein en el año 2017.
+              Desde la fotografía creativa, desarrolla atmósferas contemplativas que invitan a una observación sensible, evocando imaginarios del inconsciente colectivo atravesados por el goce y la reinterpretación. Sus imágenes abordan vivencias, recuerdos y percepciones íntimas intervenidas por el cuerpo, la naturaleza y la arquitectura. A través de la recreación y reinterpretación de escenarios, construye espacios donde la intimidad, la memoria y la experiencia se tensionan en estados de impermanencia.
             </p>
 
             <p>
-              Está abocado a la fotografía creativa en su búsqueda
-              de expresar y materializar diferentes experiencias y
-              etapas utilizando elementos de la naturaleza, el cuerpo
-              humano y la arquitectura. Así también como crear y
-              reinterpretar escenarios y vincularlos con la intimidad.
+              Complementó su formación a través de cursos y talleres de escritura, arte oriental y estética, performance corporal, montaje y conservación de obra, dictados por Maricel Álvarez, Silvia Elena Calvo, Tomás Lynch y Marcos López, entre otros.
             </p>
 
             <p>
-              Realizó diversos cursos y talleres de escritura, arte
-              oriental y su estética, performance corporal, así como
-              montaje y conservación de obras dictados por Maricel
-              Álvarez, Silvia Elena Calvo, Tomás Lynch, Marcos López,
-              entre otros.
-            </p>
-
-            <p>
-              Su obra se expuso en diferentes muestras colectivas,
-              arte impresa y revistas digitales.
+              Su obra formó parte de exposiciones individuales y colectivas, además de publicaciones impresas y revistas digitales.
             </p>
 
           </div>

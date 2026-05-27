@@ -151,10 +151,7 @@ export default async function HomePage() {
             }}
           >
 
-            Está abocado a la fotografía creativa en su búsqueda
-            de expresar y materializar diferentes experiencias y etapas
-            utilizando elementos de la naturaleza, el cuerpo humano
-            y la arquitectura.
+            Desde la fotografía creativa, desarrolla atmósferas contemplativas que invitan a una observación sensible, evocando imaginarios del inconsciente colectivo atravesados por el goce y la reinterpretación. Sus imágenes abordan vivencias, recuerdos y percepciones íntimas intervenidas por el cuerpo, la naturaleza y la arquitectura.
 
           </p>
 
