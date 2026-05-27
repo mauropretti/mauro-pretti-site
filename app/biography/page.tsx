@@ -63,7 +63,24 @@ export default function BiographyPage() {
           >
             Mauro Pretti
           </h1>
+{/* IMAGE */}
 
+<div className="mb-12">
+  <img
+    src="/bio/mauro-pretti.webp"
+    alt="Mauro Pretti portrait"
+    className="
+      w-[120px]
+      md:w-[160px]
+
+      h-auto
+
+      object-cover
+
+      rounded-[2px]
+    "
+  />
+</div>
           {/* TEXT */}
 
           <div
