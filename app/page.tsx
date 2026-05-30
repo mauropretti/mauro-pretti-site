@@ -151,7 +151,7 @@ export default async function HomePage() {
             }}
           >
 
-            Desde la fotografía creativa, desarrolla atmósferas contemplativas que invitan a una observación sensible, evocando imaginarios del inconsciente colectivo atravesados por el goce y la reinterpretación. Sus imágenes abordan vivencias, recuerdos y percepciones íntimas intervenidas por el cuerpo, la naturaleza y la arquitectura.
+            Desde la fotografía creativa, desarrolla atmósferas contemplativas que invitan a una observación sensible, evocando imaginarios del inconsciente colectivo atravesados por el goce y la reinterpretación. 
 
           </p>
 
