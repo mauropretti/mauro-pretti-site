@@ -345,7 +345,7 @@ export default async function HomePage() {
           relative
           z-10
 
-          pt-[52vh]
+          pt-[60vh]
           md:pt-[58vh]
 
           pb-40
