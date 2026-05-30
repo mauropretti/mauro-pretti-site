@@ -342,10 +342,11 @@ export default async function HomePage() {
 
       <section
         className="
+            home-stack
           relative
           z-10
 
-          pt-[60vh]
+          pt-[52vh]
           md:pt-[58vh]
 
           pb-40

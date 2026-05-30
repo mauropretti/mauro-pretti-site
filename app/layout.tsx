@@ -86,3 +86,12 @@ export default function RootLayout({
 
   )
 }
+<script
+  dangerouslySetInnerHTML={{
+    __html: `
+      if (/Instagram/i.test(navigator.userAgent)) {
+        document.documentElement.classList.add('instagram-webview');
+      }
+    `,
+  }}
+/>
