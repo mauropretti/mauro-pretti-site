@@ -3,6 +3,7 @@ import type {Metadata} from 'next'
 import './globals.css'
 
 import {Bebas_Neue} from 'next/font/google'
+import Script from 'next/script'
 
 import SmoothScroll from './components/SmoothScroll'
 
@@ -72,6 +73,12 @@ export default function RootLayout({
 
       <body>
 
+        <Script id="ig-webview-detect" strategy="afterInteractive">{`
+          if (/Instagram/.test(navigator.userAgent)) {
+            document.documentElement.classList.add('ig-webview')
+          }
+        `}</Script>
+
         <div className="site-shell">
 
           <SmoothScroll />
@@ -86,12 +93,3 @@ export default function RootLayout({
 
   )
 }
-<script
-  dangerouslySetInnerHTML={{
-    __html: `
-      if (/Instagram/i.test(navigator.userAgent)) {
-        document.documentElement.classList.add('instagram-webview');
-      }
-    `,
-  }}
-/>
