@@ -58,8 +58,7 @@ export default function ProjectLink({
             .width(1600)
             .quality(82)
             .url()}
-          alt={item.title}
-        />
+alt={`${item.title} – proyecto fotográfico de Mauro Pretti`}        />
 
       </div>
 

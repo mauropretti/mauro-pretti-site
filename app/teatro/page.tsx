@@ -343,9 +343,7 @@ export default async function TeatroPage() {
                               .url()
                           }
 
-                          alt={
-                            project.title
-                          }
+                          alt={`${project.title} – fotografía teatral ${index + 1} de Mauro Pretti`}
 
                           className="
                             w-full

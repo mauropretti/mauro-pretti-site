@@ -413,9 +413,7 @@ export default function GestoIntimoPage() {
                                 .url()
                             }
 
-                            alt={
-                              project.title
-                            }
+                            alt={`${project.title} – fotografía ${index + 1}`}
 
                             className={`
                               w-auto

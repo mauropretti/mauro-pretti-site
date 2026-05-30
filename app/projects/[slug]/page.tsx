@@ -117,8 +117,7 @@ export default async function ProjectPage({
                       .width(1600)
                       .quality(82)
                       .url()}
-                    alt={project.title}
-                    className="
+alt={`${project.title} – fotografía ${index + 1} de Mauro Pretti`}                    className="
                       w-auto
                       h-auto
 

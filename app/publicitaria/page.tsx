@@ -332,10 +332,7 @@ export default async function PublicitariaPage() {
                               .url()
                           }
 
-                          alt={
-                            project.title
-                          }
-
+                          alt={`${project.title} – campaña publicitaria ${index + 1} de Mauro Pretti`}
                           className="
                             w-full
                             h-auto
