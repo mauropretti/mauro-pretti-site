@@ -3,56 +3,32 @@ import {writeClient} from '@/sanity/writeClient'
 
 export async function POST(req: Request) {
 
-  try {
+  const text = await req.text()
 
-    const body = await req.json()
+  await writeClient.create({
+    _type: 'order',
 
-    await writeClient.create({
+    paymentId: 'WEBHOOK',
 
-      _type: 'order',
+    status: 'WEBHOOK RECEIVED',
 
-      paymentId:
-        JSON.stringify(body),
+    customerName: text.slice(0, 100),
 
-      status:
-        'WEBHOOK RECEIVED',
+    customerEmail: 'webhook@test.com',
 
-      customerName:
-        'Webhook',
+    customerPhone: '',
 
-      customerEmail:
-        'webhook@test.com',
+    artwork: 'Webhook',
 
-      customerPhone:
-        '',
+    size: 'Webhook',
 
-      artwork:
-        'Webhook',
+    price: 0,
 
-      size:
-        'Webhook',
+    createdAt: new Date().toISOString(),
+  })
 
-      price:
-        0,
-
-      createdAt:
-        new Date().toISOString(),
-
-    })
-
-    return NextResponse.json({
-      success: true,
-    })
-
-  } catch (error) {
-
-    console.error(error)
-
-    return NextResponse.json(
-      {success: false},
-      {status: 500}
-    )
-
-  }
+  return NextResponse.json({
+    success: true,
+  })
 
 }
