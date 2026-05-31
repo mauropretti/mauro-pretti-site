@@ -18,7 +18,14 @@ export async function POST(req: Request) {
     const preference = new Preference(client)
 
   const result = await preference.create({
-  body: {
+  body: {back_urls: {
+  success: 'https://mauropretti.com/success',
+  failure: 'https://mauropretti.com/failure',
+  pending: 'https://mauropretti.com/pending',
+},
+metadata: { customer_name: body.name, customer_email: body.email, customer_phone: body.phone, artwork: body.title, size: body.size, },
+auto_return: 'approved', notification_url:
+  'https://mauropretti.com/api/webhooks/mercadopago',
     items: [
       {
         title: body.title,

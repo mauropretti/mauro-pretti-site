@@ -1,3 +1,4 @@
+
 'use client'
 
 import {useState} from 'react'
@@ -14,6 +15,10 @@ export default function BuyButton({
   price50x70: number
 }) {
 
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
+
   const [size, setSize] = useState('20x30')
 
   const price =
@@ -25,14 +30,23 @@ export default function BuyButton({
 
   async function handleBuy() {
 
+    if (!name || !email) {
+      alert('Completa nombre y email')
+      return
+    }
+
     const res = await fetch('/api/create-preference', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        title: `${title} (${size})`,
+        title,
         price,
+        size,
+        name,
+        email,
+        phone,
       }),
     })
 
@@ -46,7 +60,56 @@ export default function BuyButton({
 
   return (
 
-    <div className="mt-10">
+    <div className="mt-12">
+
+      <div className="space-y-4 mb-10">
+
+        <input
+          type="text"
+          placeholder="Nombre completo"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="
+            w-full
+            border
+            border-black/15
+            bg-transparent
+            px-4
+            py-3
+          "
+        />
+
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="
+            w-full
+            border
+            border-black/15
+            bg-transparent
+            px-4
+            py-3
+          "
+        />
+
+        <input
+          type="text"
+          placeholder="Teléfono"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
+          className="
+            w-full
+            border
+            border-black/15
+            bg-transparent
+            px-4
+            py-3
+          "
+        />
+
+      </div>
 
       <p className="text-[13px] uppercase text-black/50 mb-4">
         Tamaño
@@ -60,9 +123,7 @@ export default function BuyButton({
             checked={size === '20x30'}
             onChange={() => setSize('20x30')}
           />
-          <span className="ml-3">
-            20 × 30 cm
-          </span>
+          <span className="ml-3">20 × 30 cm</span>
         </label>
 
         <label>
@@ -71,9 +132,7 @@ export default function BuyButton({
             checked={size === '30x45'}
             onChange={() => setSize('30x45')}
           />
-          <span className="ml-3">
-            30 × 45 cm
-          </span>
+          <span className="ml-3">30 × 45 cm</span>
         </label>
 
         <label>
@@ -82,9 +141,7 @@ export default function BuyButton({
             checked={size === '50x70'}
             onChange={() => setSize('50x70')}
           />
-          <span className="ml-3">
-            50 × 70 cm
-          </span>
+          <span className="ml-3">50 × 70 cm</span>
         </label>
 
       </div>
@@ -93,7 +150,7 @@ export default function BuyButton({
         Precio
       </p>
 
-      <p className="text-[28px] tracking-[-0.04em] mb-8">
+      <p className="text-[28px] mb-8">
         ${price.toLocaleString('es-AR')}
       </p>
 
@@ -102,18 +159,12 @@ export default function BuyButton({
         className="
           border
           border-black/20
-
           px-6
           py-3
-
           text-[14px]
-
-          hover:border-black
-
-          transition
         "
       >
-        Comprar
+        Pagar
       </button>
 
     </div>
