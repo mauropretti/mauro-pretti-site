@@ -1,6 +1,14 @@
 import {NextResponse} from 'next/server'
 import {writeClient} from '@/sanity/writeClient'
 
+export async function GET() {
+
+  return NextResponse.json({
+    webhook: true,
+  })
+
+}
+
 export async function POST(req: Request) {
 
   const text = await req.text()
