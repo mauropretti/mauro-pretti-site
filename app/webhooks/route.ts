@@ -1,5 +1,4 @@
 import {NextResponse} from 'next/server'
-
 import {writeClient} from '@/sanity/writeClient'
 
 export async function POST(req: Request) {
@@ -13,25 +12,25 @@ export async function POST(req: Request) {
       _type: 'order',
 
       paymentId:
-        String(body?.data?.id || ''),
+        JSON.stringify(body),
 
       status:
-        String(body?.action || ''),
+        'WEBHOOK RECEIVED',
 
       customerName:
-        'Webhook Test',
+        'Webhook',
 
       customerEmail:
-        'test@test.com',
+        'webhook@test.com',
 
       customerPhone:
         '',
 
       artwork:
-        'Webhook Test',
+        'Webhook',
 
       size:
-        'Webhook Test',
+        'Webhook',
 
       price:
         0,
@@ -50,15 +49,10 @@ export async function POST(req: Request) {
     console.error(error)
 
     return NextResponse.json(
-      {
-        success: false,
-      },
-      {
-        status: 500,
-      }
+      {success: false},
+      {status: 500}
     )
 
   }
 
 }
-
