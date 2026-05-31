@@ -1,13 +1,45 @@
 import {NextResponse} from 'next/server'
 
+import {writeClient} from '@/sanity/writeClient'
+
 export async function POST(req: Request) {
 
   try {
 
     const body = await req.json()
 
-    console.log('WEBHOOK MERCADO PAGO')
-    console.log(body)
+    await writeClient.create({
+
+      _type: 'order',
+
+      paymentId:
+        String(body?.data?.id || ''),
+
+      status:
+        String(body?.action || ''),
+
+      customerName:
+        'Webhook Test',
+
+      customerEmail:
+        'test@test.com',
+
+      customerPhone:
+        '',
+
+      artwork:
+        'Webhook Test',
+
+      size:
+        'Webhook Test',
+
+      price:
+        0,
+
+      createdAt:
+        new Date().toISOString(),
+
+    })
 
     return NextResponse.json({
       success: true,
@@ -29,3 +61,4 @@ export async function POST(req: Request) {
   }
 
 }
+

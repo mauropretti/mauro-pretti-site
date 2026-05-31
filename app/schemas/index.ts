@@ -12,6 +12,7 @@ import {contactPageType} from './contactPage'
 
 import {product} from './product'
 
+import {orderType} from './order'
 
 export const schemaTypes = [
 
@@ -28,5 +29,7 @@ export const schemaTypes = [
   contactPageType,
 
   product,
+
+  orderType,
 
 ]
