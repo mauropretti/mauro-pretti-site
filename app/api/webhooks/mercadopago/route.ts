@@ -54,37 +54,70 @@ export async function POST(req: Request) {
     JSON.stringify(payment, null, 2)
   )
 
-  await writeClient.create({
-    _type: 'order',
+const metadata = payment.metadata as any
 
-    paymentId: String(paymentId),
+const existingOrder = await writeClient.fetch(
+  `*[_type == "order" && paymentId == $paymentId][0]`,
+  { paymentId: String(paymentId) }
+)
 
-    status: body.action,
-
-    customerName: 'Webhook',
-
-    customerEmail: 'webhook@test.com',
-
-    customerPhone: '',
-
-    artwork: 'Webhook',
-
-    size: 'Webhook',
-
-    price: 0,
-
-    createdAt: new Date().toISOString(),
+if (existingOrder) {
+  return NextResponse.json({
+    alreadyProcessed: true,
   })
+} 
 
-  await sendOrderEmails({
-    customerName: 'Webhook',
-    customerEmail: 'webhook@test.com',
-    customerPhone: '',
-    artwork: 'Prueba',
-    size: '30x45',
-    price: 1000,
-    paymentId: String(paymentId),
-  })
+await writeClient.create({
+  _type: 'order',
+
+  paymentId: String(paymentId),
+
+  status: payment.status,
+
+  customerName:
+    metadata.customer_name,
+
+  customerEmail:
+    metadata.customer_email,
+
+  customerPhone:
+    metadata.customer_phone,
+
+  artwork:
+    metadata.artwork,
+
+  size:
+    metadata.size,
+
+  price:
+    Number(metadata.price),
+
+  createdAt:
+    new Date().toISOString(),
+})
+
+await sendOrderEmails({
+  customerName:
+    metadata.customer_name,
+
+  customerEmail:
+    metadata.customer_email,
+
+  customerPhone:
+    metadata.customer_phone,
+
+  artwork:
+    metadata.artwork,
+
+  size:
+    metadata.size,
+
+  price:
+    Number(metadata.price),
+
+  paymentId:
+    String(paymentId),
+})
 
   return NextResponse.json({
     success: true,
