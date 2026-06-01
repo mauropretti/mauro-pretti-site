@@ -176,6 +176,37 @@ export default async function ProductPage({
     <p>50 × 70 cm — ${product.price50x70}</p>
   )}
 
+<p
+  className="
+    pt-4
+
+    text-[13px]
+    md:text-[14px]
+
+    leading-[1.8]
+
+    text-black/45
+
+    max-w-[620px]
+  "
+  style={{
+    fontFamily:
+      'Inter, Helvetica, Arial, sans-serif',
+  }}
+>
+
+  <strong>Producción Fine Art.</strong> Cada obra se produce individualmente a partir del archivo original. Los valores corresponden únicamente a la impresión.
+
+  <br /><br />
+
+  <strong>Plazo estimado:</strong> 7 a 10 días.
+
+  <br /><br />
+
+  <strong>Envíos a toda Argentina.</strong> El costo se calcula según destino. <em>En Ciudad de Buenos Aires también es posible coordinar retiro o entrega personal para reducir costos.</em>
+
+</p>
+
   <div className="pt-6">
 
 
