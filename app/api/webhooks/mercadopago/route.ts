@@ -47,7 +47,7 @@ export async function POST(req: Request) {
 
 await sendOrderEmails({
   customerName: 'Webhook',
-  customerEmail: 'hola@mauropretti.com',
+  customerEmail: 'webhook@test.com',
   customerPhone: '',
   artwork: 'Prueba',
   size: '30x45',
