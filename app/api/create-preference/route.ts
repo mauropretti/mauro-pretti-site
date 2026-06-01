@@ -23,7 +23,14 @@ export async function POST(req: Request) {
   failure: 'https://mauropretti.com/failure',
   pending: 'https://mauropretti.com/pending',
 },
-metadata: { customer_name: body.name, customer_email: body.email, customer_phone: body.phone, artwork: body.title, size: body.size, },
+metadata: {
+  customer_name: body.name,
+  customer_email: body.email,
+  customer_phone: body.phone,
+  artwork: body.title,
+  size: body.size,
+  price: body.price,
+},
 auto_return: 'approved', notification_url:
   'https://mauropretti.com/api/webhooks/mercadopago',
     items: [

@@ -11,16 +11,17 @@ export async function GET() {
 
 export async function POST(req: Request) {
 
-  const text = await req.text()
+  const body = await req.json()
 
   await writeClient.create({
+
     _type: 'order',
 
-    paymentId: 'WEBHOOK',
+    paymentId: JSON.stringify(body),
 
-    status: 'WEBHOOK RECEIVED',
+    status: 'RAW WEBHOOK',
 
-    customerName: text.slice(0, 100),
+    customerName: 'Webhook',
 
     customerEmail: 'webhook@test.com',
 
@@ -33,6 +34,7 @@ export async function POST(req: Request) {
     price: 0,
 
     createdAt: new Date().toISOString(),
+
   })
 
   return NextResponse.json({
@@ -40,3 +42,4 @@ export async function POST(req: Request) {
   })
 
 }
+
