@@ -56,6 +56,13 @@ export const orderType = defineType({
     }),
 
     defineField({
+      name: 'paidAmount',
+      title: 'Monto cobrado real',
+      type: 'number',
+      description: 'Monto efectivamente cobrado por Mercado Pago (transaction_amount). Debe coincidir con Price.',
+    }),
+
+    defineField({
       name: 'createdAt',
       title: 'Created At',
       type: 'datetime',
