@@ -45,14 +45,17 @@ export async function POST(req: Request) {
   const paymentClient =
     new Payment(client)
 
-  const payment =
-    await paymentClient.get({
-      id: Number(paymentId),
-    })
+const payment =
+  await paymentClient.get({
+    id: Number(paymentId),
+  })
 
-  console.log(
-    JSON.stringify(payment, null, 2)
-  )
+if (payment.status !== 'approved') {
+  return NextResponse.json({
+    ignored: true,
+    status: payment.status,
+  })
+}
 
 const metadata = payment.metadata as any
 
