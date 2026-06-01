@@ -332,6 +332,34 @@ export default async function HomePage() {
 
   </AppLink>
 
+  {/* TIENDA */}
+
+<AppLink
+  href="/tienda"
+
+  className="
+    text-[13px]
+    sm:text-[14px]
+
+    tracking-[-0.03em]
+
+    text-black/55
+
+    transition-opacity
+    duration-500
+
+    hover:opacity-40
+  "
+  style={{
+    fontFamily:
+      'Satoshi, Inter, sans-serif',
+  }}
+>
+
+  Tienda
+
+</AppLink>
+
 </div>
 
         </div>
@@ -368,7 +396,65 @@ export default async function HomePage() {
         </div>
 
       </section>
+<footer
+  className="
+    relative
+    z-20
 
+    pb-16
+    pt-8
+
+    px-6
+    sm:px-8
+    md:px-10
+  "
+>
+
+  <div
+    className="
+      max-w-[1580px]
+      mx-auto
+
+      flex
+      flex-wrap
+
+      gap-x-6
+      gap-y-3
+
+      text-[13px]
+      sm:text-[14px]
+
+      text-black/55
+    "
+    style={{
+      fontFamily:
+        'Satoshi, Inter, sans-serif',
+    }}
+  >
+
+    <AppLink href="/lightroom">
+      Curso Lightroom
+    </AppLink>
+
+    <AppLink href="/publicitaria">
+      Publicitaria
+    </AppLink>
+
+    <AppLink href="/teatro">
+      Teatro
+    </AppLink>
+
+    <AppLink href="/el-gesto-intimo">
+      El gesto íntimo
+    </AppLink>
+
+    <AppLink href="/tienda">
+      Tienda
+    </AppLink>
+
+  </div>
+
+</footer>
     </main>
 
   )
