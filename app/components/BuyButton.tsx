@@ -60,7 +60,7 @@ export default function BuyButton({
 
   return (
 
-    <div className="mt-12">
+    <div className="mt-0">
 
       <div className="space-y-4 mb-10">
 

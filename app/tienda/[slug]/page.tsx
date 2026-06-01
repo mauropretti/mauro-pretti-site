@@ -206,14 +206,30 @@ export default async function ProductPage({
   <strong>Envíos a toda Argentina.</strong> El costo se calcula según destino. <em>En Ciudad de Buenos Aires también es posible coordinar retiro o entrega personal para reducir costos.</em>
 
 </p>
+<p
+  className="
+    mb-6
 
+    text-[13px]
+    md:text-[14px]
+
+    tracking-[-0.03em]
+
+    text-[#4940d8]/85
+  "
+  style={{
+    fontFamily:
+      'Inter, Helvetica, Arial, sans-serif',
+  }}
+>
+  Iniciar compra de <strong>{product.title}</strong>
+</p>
   <div className="pt-6">
 
-
-<BuyButton
-  title={product.title}
-  price20x30={product.price20x30}
-  price30x45={product.price30x45}
+    <BuyButton
+      title={product.title}
+      price20x30={product.price20x30}
+      price30x45={product.price30x45}
   price50x70={product.price50x70}
 />
 

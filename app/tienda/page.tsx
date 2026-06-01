@@ -206,17 +206,8 @@ gap-y-24
         }}
       >
 
-        {product.price20x30 && (
-          <p>20 × 30 cm — ${product.price20x30}</p>
-        )}
+          ${product.price20x30} — ${product.price50x70}
 
-        {product.price30x45 && (
-          <p>30 × 45 cm — ${product.price30x45}</p>
-        )}
-
-        {product.price50x70 && (
-          <p>50 × 70 cm — ${product.price50x70}</p>
-        )}
 
       </div>
 
