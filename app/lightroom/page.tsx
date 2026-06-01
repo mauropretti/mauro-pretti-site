@@ -1,7 +1,7 @@
 export const dynamic = 'force-dynamic'
 
 import Header from '../components/Header'
-
+import AppLink from '../components/AppLink'
 export default async function LightroomPage() {
 
   return (
@@ -130,7 +130,57 @@ export default async function LightroomPage() {
 
         </div>
 
-      </section>
+           </section>
+
+      <footer
+        className="
+          px-6
+          md:px-10
+
+          pb-16
+        "
+      >
+
+        <div
+          className="
+            flex
+            flex-wrap
+
+            gap-x-4
+            gap-y-3
+
+            text-[13px]
+            sm:text-[14px]
+
+            tracking-[-0.03em]
+
+            text-black/55
+          "
+        >
+
+          <AppLink href="/">
+            Home
+          </AppLink>
+
+          <AppLink href="/publicitaria">
+            Publicitaria
+          </AppLink>
+
+          <AppLink href="/teatro">
+            Teatro
+          </AppLink>
+
+          <AppLink href="/el-gesto-intimo">
+            El gesto íntimo
+          </AppLink>
+
+          <AppLink href="/tienda">
+            Tienda
+          </AppLink>
+
+        </div>
+
+      </footer>
 
     </main>
 

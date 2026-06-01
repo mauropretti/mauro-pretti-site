@@ -1,4 +1,5 @@
 import Header from '../components/Header'
+import AppLink from '../components/AppLink'
 
 export default function BiographyPage() {
 
@@ -107,6 +108,70 @@ export default function BiographyPage() {
         </div>
 
       </section>
+
+<footer
+  className="
+    px-6
+    md:px-10
+
+    pb-16
+  "
+>
+
+  <div
+    className="
+      flex
+      flex-wrap
+
+      gap-x-4
+      sm:gap-x-5
+
+      gap-y-3
+
+      text-[13px]
+      sm:text-[14px]
+
+      tracking-[-0.03em]
+
+      text-black/55
+    "
+    style={{
+      fontFamily:
+        'Satoshi, Inter, sans-serif',
+    }}
+  >
+
+    <AppLink href="/">
+      Home
+    </AppLink>
+
+    <AppLink href="/lightroom">
+      Lightroom
+    </AppLink>
+
+    <AppLink href="/publicitaria">
+      Publicitaria
+    </AppLink>
+
+    <AppLink href="/teatro">
+      Teatro
+    </AppLink>
+
+    <AppLink
+      href="/el-gesto-intimo"
+      className="tracking-[-0.06em]"
+    >
+      El gesto íntimo
+    </AppLink>
+
+    <AppLink href="/tienda">
+      Tienda
+    </AppLink>
+
+  </div>
+
+</footer>
+
 
     </main>
   )

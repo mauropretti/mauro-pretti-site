@@ -1,4 +1,6 @@
 import Header from '../components/Header'
+import AppLink from '../components/AppLink'
+
 import Link from 'next/link'
 import {client} from '@/sanity/client'
 import {urlFor} from '@/sanity/image'

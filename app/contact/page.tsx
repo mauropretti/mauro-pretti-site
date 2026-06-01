@@ -2,6 +2,7 @@ export const dynamic = 'force-dynamic'
 
 import ContactForm from '../components/ContactForm'
 import Header from '../components/Header'
+import AppLink from '../components/AppLink'
 
 import {client} from '@/sanity/client'
 
@@ -236,6 +237,39 @@ export default async function ContactPage() {
 
         </div>
 
+<div
+  className="
+    mt-20
+    mb-12
+
+    max-w-[720px]
+  "
+>
+
+  <p
+    className="
+      text-[15px]
+      md:text-[17px]
+
+      leading-[1.8]
+
+      text-black/55
+    "
+    style={{
+      fontFamily:
+        'Inter, Helvetica, Arial, sans-serif',
+    }}
+  >
+
+    Para consultas sobre obras específicas, encargos,
+proyectos fotográficos o ediciones Fine Art
+por fuera de la tienda, dejá tu mensaje en el formulario.
+Respondo personalmente.
+  </p>
+
+</div>
+
+
         <div className="mt-24">
 
           <ContactForm />
@@ -243,6 +277,70 @@ export default async function ContactPage() {
         </div>
 
       </section>
+
+<footer
+  className="
+    px-6
+    md:px-10
+
+    pb-16
+  "
+>
+
+  <div
+    className="
+      flex
+      flex-wrap
+
+      gap-x-4
+      sm:gap-x-5
+
+      gap-y-3
+
+      text-[13px]
+      sm:text-[14px]
+
+      tracking-[-0.03em]
+
+      text-black/55
+    "
+    style={{
+      fontFamily:
+        'Satoshi, Inter, sans-serif',
+    }}
+  >
+
+    <AppLink href="/">
+      Home
+    </AppLink>
+
+    <AppLink href="/lightroom">
+      Lightroom
+    </AppLink>
+
+    <AppLink href="/publicitaria">
+      Publicitaria
+    </AppLink>
+
+    <AppLink href="/teatro">
+      Teatro
+    </AppLink>
+
+    <AppLink
+      href="/el-gesto-intimo"
+      className="tracking-[-0.06em]"
+    >
+      El gesto íntimo
+    </AppLink>
+
+    <AppLink href="/tienda">
+      Tienda
+    </AppLink>
+
+  </div>
+
+</footer>
+
 
     </main>
 
