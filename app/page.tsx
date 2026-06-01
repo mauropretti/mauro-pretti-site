@@ -167,8 +167,8 @@ export default async function HomePage() {
 
     items-end
 
-    gap-x-5
-    sm:gap-x-6
+    gap-x-4
+    sm:gap-x-5
 
     mt-7
     sm:mt-8
@@ -313,7 +313,7 @@ export default async function HomePage() {
       text-[13px]
       sm:text-[14px]
 
-      tracking-[-0.03em]
+      tracking-[-0.08em]
 
       text-black/55
 
