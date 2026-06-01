@@ -13,13 +13,30 @@ export async function POST(req: Request) {
 
   const body = await req.json()
 
-  await writeClient.create({
+  if (body.type !== 'payment') {
 
+    return NextResponse.json({
+      ignored: true,
+    })
+
+  }
+
+  const paymentId = body?.data?.id
+
+  if (!paymentId) {
+
+    return NextResponse.json({
+      ignored: true,
+    })
+
+  }
+
+  await writeClient.create({
     _type: 'order',
 
-    paymentId: JSON.stringify(body),
+    paymentId: String(paymentId),
 
-    status: 'RAW WEBHOOK',
+    status: body.action,
 
     customerName: 'Webhook',
 
@@ -34,12 +51,8 @@ export async function POST(req: Request) {
     price: 0,
 
     createdAt: new Date().toISOString(),
-
   })
 
   return NextResponse.json({
     success: true,
-  })
-
-}
-
+  })}
