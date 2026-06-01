@@ -54,7 +54,7 @@ export async function POST(req: Request) {
           pending: 'https://mauropretti.com/pending',
         },
         auto_return: 'approved',
-        notification_url: 'https://mauropretti.com/api/mercadopago/webhook',
+        notification_url: 'https://mauropretti.com/api/webhooks/mercadopago',
       },
     }as any)
 
