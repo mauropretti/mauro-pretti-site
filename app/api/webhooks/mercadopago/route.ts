@@ -1,3 +1,4 @@
+import {sendOrderEmails} from '@/app/lib/sendOrderEmails'
 import {NextResponse} from 'next/server'
 import {writeClient} from '@/sanity/writeClient'
 
@@ -32,27 +33,28 @@ export async function POST(req: Request) {
   }
 
   await writeClient.create({
-    _type: 'order',
+  _type: 'order',
+  paymentId: String(paymentId),
+  status: body.action,
+  customerName: 'Webhook',
+  customerEmail: 'webhook@test.com',
+  customerPhone: '',
+  artwork: 'Webhook',
+  size: 'Webhook',
+  price: 0,
+  createdAt: new Date().toISOString(),
+})
 
-    paymentId: String(paymentId),
+await sendOrderEmails({
+  customerName: 'Webhook',
+  customerEmail: 'hola@mauropretti.com',
+  customerPhone: '',
+  artwork: 'Prueba',
+  size: '30x45',
+  price: 1000,
+  paymentId: String(paymentId),
+})
 
-    status: body.action,
-
-    customerName: 'Webhook',
-
-    customerEmail: 'webhook@test.com',
-
-    customerPhone: '',
-
-    artwork: 'Webhook',
-
-    size: 'Webhook',
-
-    price: 0,
-
-    createdAt: new Date().toISOString(),
-  })
-
-  return NextResponse.json({
-    success: true,
-  })}
+return NextResponse.json({
+  success: true,
+})}
