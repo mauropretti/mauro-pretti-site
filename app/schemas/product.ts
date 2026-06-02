@@ -38,6 +38,16 @@ export const product = defineType({
         hotspot: true,
       },
     }),
+    defineField({
+  name: 'galleryImages',
+  title: 'Gallery Images',
+  type: 'array',
+  of: [
+    {
+      type: 'image',
+    },
+  ],
+}),
 defineField({
   name: 'orientation',
   title: 'Orientation',

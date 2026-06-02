@@ -82,7 +82,7 @@ export default async function ShopPage() {
                 'Inter, Helvetica, Arial, sans-serif',
             }}
           >
-            Impresiones Fine Art
+            Fotografías Fine Art
           </h1>
 
           <p
@@ -103,7 +103,7 @@ export default async function ShopPage() {
                 'Inter, Helvetica, Arial, sans-serif',
             }}
           >
-            Selección de obras disponibles como impresión Fine Art sobre papel Hahnemühle.
+            Selección de fotografías disponibles. Impresión Fine Art sobre papel Hahnemühle Matt Fibre. Proceso de revelado e impresión conservando detalles y calidad expositiva sobre papel natural con una ligera textura que acentúa la expresión en cada obra. Envíos a todo el país
           </p>
 
           <div

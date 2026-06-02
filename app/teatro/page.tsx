@@ -94,7 +94,7 @@ export default async function TeatroPage() {
             }}
           >
 
-            archivo escénico / corporal
+             archivo fotográfico de obras de teatro
 
           </p>
 
@@ -142,9 +142,7 @@ export default async function TeatroPage() {
               }}
           >
 
-            Registro fotográfico escénico
-            centrado en el cuerpo, la presencia,
-            la iluminación y el espacio teatral.
+            Registro fotográfico escénico, lumínico y de performance actoral y de danza contemporánea.
 
           </p>
 

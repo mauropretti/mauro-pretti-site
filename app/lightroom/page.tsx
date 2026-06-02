@@ -47,8 +47,7 @@ export default async function LightroomPage() {
             }}
           >
 
-            education
-
+          curso online a distancia con clases en vivo
           </p>
 
           {/* TITLE */}
@@ -76,7 +75,7 @@ export default async function LightroomPage() {
             }}
           >
 
-            Curso Lightroom CC
+            Curso Lightroom 
 
           </h1>
 
@@ -105,19 +104,12 @@ export default async function LightroomPage() {
 
               Curso orientado a fotógrafos, creativos
               y profesionales que buscan desarrollar un
-              flujo de trabajo moderno y eficiente dentro
-              de Lightroom CC.
+              flujo de trabajo eficiente y creativos desde
+              Lightroom.
 
             </p>
 
             <p>
-
-              El contenido aborda organización,
-              revelado, color, exportación,
-              optimización para portfolio y procesos
-              editoriales utilizados en proyectos
-              artísticos y comerciales.
-
             </p>
 
             <p>

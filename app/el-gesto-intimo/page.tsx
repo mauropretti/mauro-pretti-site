@@ -147,7 +147,7 @@ export default function GestoIntimoPage() {
                 }}
               >
 
-                pieza expositiva / narrativa visual
+                Recorrido sobre proyectos artísticos
 
               </p>
 

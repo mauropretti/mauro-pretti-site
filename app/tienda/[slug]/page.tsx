@@ -1,5 +1,6 @@
 import Header from '../../components/Header'
  import ProductPurchase from '../../components/ProductPurchase'
+import ProductGallery from '../../components/ProductGallery' 
 import BuyButton from '../../components/BuyButton'
 import {notFound} from 'next/navigation'
 
@@ -18,6 +19,7 @@ async function getProduct(slug: string) {
         series,
         description,
         coverImage,
+        galleryImages,
 
         price20x30,
         price30x45,
@@ -55,27 +57,11 @@ export default async function ProductPage({
 
         <div className="max-w-[1200px]">
 
-          {product.coverImage && (
-
-            <img
-              src={urlFor(product.coverImage)
-                .width(2000)
-                .quality(90)
-                .url()}
-              alt={`${product.title} – impresión Fine Art de Mauro Pretti`}
-              className="
-                w-full
-                h-auto
-
-                max-w-[900px]
-
-                object-contain
-
-                mb-12
-              "
-            />
-
-          )}
+<ProductGallery
+  coverImage={product.coverImage}
+  galleryImages={product.galleryImages}
+  title={product.title}
+/>
 
           <h1
             className="
@@ -208,21 +194,36 @@ export default async function ProductPage({
 </p>
 <p
   className="
-    mb-6
+    mb-2
 
-    text-[13px]
-    md:text-[14px]
+    text-[14px]
+    md:text-[15px]
 
     tracking-[-0.03em]
 
-    text-[#4940d8]/85
+    text-[#4940d8]
   "
-  style={{
-    fontFamily:
-      'Inter, Helvetica, Arial, sans-serif',
-  }}
 >
   Iniciar compra de <strong>{product.title}</strong>
+</p>
+
+<p
+  className="
+    mb-6
+
+    text-[12px]
+    md:text-[13px]
+
+    leading-[1.7]
+
+    text-black/45
+
+    max-w-[620px]
+  "
+>
+  Serás dirigido a una plataforma de pago segura.
+  Una vez acreditado el pago recibirás un correo
+  de confirmación con los detalles de tu compra.
 </p>
   <div className="pt-6">
 

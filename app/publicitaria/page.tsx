@@ -92,7 +92,7 @@ export default async function PublicitariaPage() {
             }}
           >
 
-            archivo comercial / editorial
+            archivo de proyectos de fotografía publicitaria
 
           </p>
 
@@ -141,9 +141,7 @@ export default async function PublicitariaPage() {
           >
 
             Campañas, editoriales y
-            producciones visuales centradas
-            en narrativa, dirección estética
-            y construcción de imagen.
+            producciones fotográficas.
 
           </p>
 

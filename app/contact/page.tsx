@@ -261,10 +261,9 @@ export default async function ContactPage() {
     }}
   >
 
-    Para consultas sobre obras específicas, encargos,
+    Para consultas sobre obras específicas,
 proyectos fotográficos o ediciones Fine Art
 por fuera de la tienda, dejá tu mensaje en el formulario.
-Respondo personalmente.
   </p>
 
 </div>
