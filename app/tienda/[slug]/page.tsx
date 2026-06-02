@@ -1,6 +1,5 @@
 import Header from '../../components/Header'
  import ProductPurchase from '../../components/ProductPurchase'
-import ProductGallery from '../../components/ProductGallery' 
 import BuyButton from '../../components/BuyButton'
 import {notFound} from 'next/navigation'
 
@@ -57,11 +56,27 @@ export default async function ProductPage({
 
         <div className="max-w-[1200px]">
 
-<ProductGallery
-  coverImage={product.coverImage}
-  galleryImages={product.galleryImages}
-  title={product.title}
-/>
+          {product.coverImage && (
+
+            <img
+              src={urlFor(product.coverImage)
+                .width(2000)
+                .quality(90)
+                .url()}
+              alt={`${product.title} – impresión Fine Art de Mauro Pretti`}
+              className="
+                w-full
+                h-auto
+
+                max-w-[900px]
+
+                object-contain
+
+                mb-12
+              "
+            />
+
+          )}
 
           <h1
             className="
