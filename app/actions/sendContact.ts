@@ -86,7 +86,105 @@ export async function sendContact(
       })
 
     console.log(data)
+await resend.emails.send({
 
+  from: 'Mauro Pretti <hola@mauropretti.com>',
+
+  to: email,
+
+  subject: 'He recibido tu mensaje',
+
+  html: `
+
+    <div
+      style="
+        max-width:600px;
+        margin:0 auto;
+        padding:40px 24px;
+
+        font-family:
+          Inter,
+          Arial,
+          sans-serif;
+
+        color:#222;
+      "
+    >
+
+      <div
+        style="
+          text-align:center;
+          margin-bottom:32px;
+        "
+      >
+
+        <img
+          src="https://mauropretti.com/logo.png"
+          alt="Mauro Pretti"
+          style="
+            max-width:220px;
+            height:auto;
+          "
+        />
+
+      </div>
+
+      <p
+        style="
+          font-size:16px;
+          line-height:1.8;
+        "
+      >
+
+        Hola ${name},
+
+      </p>
+
+      <p
+        style="
+          font-size:16px;
+          line-height:1.8;
+        "
+      >
+
+        Gracias por escribirme.
+
+        He recibido tu mensaje correctamente y te responderé a la brevedad.
+
+      </p>
+
+      <p
+        style="
+          font-size:16px;
+          line-height:1.8;
+        "
+      >
+
+        Mientras tanto, puedes visitar mi portfolio para conocer más sobre mis proyectos fotográficos, exposiciones y ediciones Fine Art.
+
+      </p>
+
+      <p
+        style="
+          margin-top:32px;
+
+          font-size:16px;
+          line-height:1.8;
+        "
+      >
+
+        Mauro Pretti
+
+        <br />
+
+        Fotógrafo
+
+      </p>
+
+    </div>
+
+  `,
+})
     return {
       success: true,
     }
