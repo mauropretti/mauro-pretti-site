@@ -6,7 +6,7 @@ import AppLink from '../components/AppLink'
 import {client} from '@/sanity/client'
 
 import {urlFor} from '@/sanity/image'
-
+import MaskReveal from '../components/MaskReveal'
 export const dynamic = 'force-dynamic'
 
 async function getPublicitariaProjects() {

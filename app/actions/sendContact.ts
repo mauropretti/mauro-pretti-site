@@ -36,8 +36,7 @@ export async function sendContact(
     const data =
       await resend.emails.send({
 
-        from:
-          'Portfolio <onboarding@resend.dev>',
+        from: 'Mauro Pretti <hola@mauropretti.com>',
 
         to:
            process.env.CONTACT_EMAIL || '',
