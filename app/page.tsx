@@ -44,8 +44,6 @@ export default async function HomePage() {
   const projects = await getProjects()
 
   const mixedImages: any[] = []
-
-  // Registramos qué slugs ya aparecieron una vez
   const seenSlugs = new Set<string>()
 
   for (let i = 0; i < 10; i++) {
@@ -58,14 +56,12 @@ export default async function HomePage() {
       if (image) {
         const slug = project.slug?.current
         const isFirstOccurrence = !seenSlugs.has(slug)
-
         if (isFirstOccurrence) seenSlugs.add(slug)
 
         mixedImages.push({
           image,
           slug,
           title: project.title,
-          // primera vez visible para crawlers, el resto oculto
           ariaHidden: !isFirstOccurrence,
         })
       }
@@ -279,14 +275,12 @@ export default async function HomePage() {
       >
         <div className="flex flex-col items-center">
           {mixedImages.map((item: any, index: number) => (
-            // aria-hidden en repeticiones: Google solo indexa la primera
-            // aparición de cada proyecto, el resto es visual
-            <div
+            <ProjectLink
               key={index}
-              aria-hidden={item.ariaHidden ? 'true' : undefined}
-            >
-              <ProjectLink item={item} index={index} />
-            </div>
+              item={item}
+              index={index}
+              ariaHidden={item.ariaHidden}
+            />
           ))}
         </div>
       </section>

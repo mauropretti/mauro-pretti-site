@@ -1,29 +1,25 @@
 'use client'
 
 import Link from 'next/link'
-
 import ParallaxImage from './ParallaxImage'
-
 import {urlFor} from '@/sanity/image'
 
 export default function ProjectLink({
   item,
   index,
+  ariaHidden,
 }: any) {
-
   return (
-
     <Link
       href={`/projects/${item.slug}`}
       scroll={true}
-
+      aria-hidden={ariaHidden ? 'true' : undefined}
+      tabIndex={ariaHidden ? -1 : undefined}
       className={`
         group
         block
-
         mb-20
         md:mb-28
-
         ${
           index % 4 === 0
             ? 'self-start ml-[8vw]'
@@ -35,12 +31,10 @@ export default function ProjectLink({
         }
       `}
     >
-
       <div
         className={`
           overflow-visible
           bg-[#ecece8]
-
           ${
             index % 4 === 0
               ? 'w-[72vw] sm:w-[58vw] md:w-[28vw] lg:w-[32vw]'
@@ -52,17 +46,11 @@ export default function ProjectLink({
           }
         `}
       >
-
         <ParallaxImage
-          src={urlFor(item.image)
-            .width(1600)
-            .quality(82)
-            .url()}
-alt={`${item.title} – proyecto fotográfico de Mauro Pretti`}        />
-
+          src={urlFor(item.image).width(1600).quality(82).url()}
+          alt={`${item.title} – proyecto fotográfico de Mauro Pretti`}
+        />
       </div>
-
     </Link>
-
   )
 }
