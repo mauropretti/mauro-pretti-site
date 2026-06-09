@@ -1,178 +1,143 @@
+import type {Metadata} from 'next'
+
 import Header from '../components/Header'
 import AppLink from '../components/AppLink'
 
+export const metadata: Metadata = {
+  title: 'Biografía',
+  description:
+    'Mauro Pretti (1986, Paraná). Fotógrafo y artista visual graduado en la Escuela Andy Goldstein. Desarrolla su práctica en Buenos Aires con proyectos autorales, expositivos y publicitarios.',
+  alternates: {
+    canonical: 'https://mauropretti.com/biography',
+  },
+  openGraph: {
+    title: 'Biografía | Mauro Pretti',
+    description:
+      'Mauro Pretti (1986, Paraná). Fotógrafo y artista visual graduado en la Escuela Andy Goldstein. Desarrolla su práctica en Buenos Aires con proyectos autorales, expositivos y publicitarios.',
+    url: 'https://mauropretti.com/biography',
+    images: [
+      {
+        url: '/og-image.webp',
+        width: 1200,
+        height: 630,
+        alt: 'Mauro Pretti – Fotógrafo y Artista Visual, Buenos Aires',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Biografía | Mauro Pretti',
+    description:
+      'Mauro Pretti (1986, Paraná). Fotógrafo y artista visual graduado en la Escuela Andy Goldstein. Desarrolla su práctica en Buenos Aires con proyectos autorales, expositivos y publicitarios.',
+    images: ['/og-image.webp'],
+  },
+}
+
 export default function BiographyPage() {
-
   return (
-
     <main className="bg-[#f4f4f1] text-black min-h-screen overflow-hidden">
-
       <Header />
 
       {/* CONTENT */}
-
       <section className="pt-32 md:pt-40 px-6 md:px-10 pb-40">
-
         <div className="max-w-[900px]">
 
           {/* LABEL */}
-
           <p
             className="
-              text-[12px]
-              md:text-[13px]
-
+              text-[12px] md:text-[13px]
               lowercase
-
               tracking-[-0.01em]
-
               text-[#4940d8]/70
-
               mb-6
             "
-            style={{
-              fontFamily:
-                'Inter, Helvetica, Arial, sans-serif',
-            }}
+            style={{fontFamily: 'Inter, Helvetica, Arial, sans-serif'}}
           >
             biografía
           </p>
 
           {/* TITLE */}
-
           <h1
             className="
-              text-[28px]
-              sm:text-[34px]
-              md:text-[48px]
-              lg:text-[58px]
-
+              text-[28px] sm:text-[34px] md:text-[48px] lg:text-[58px]
               leading-[0.92]
-
               tracking-[-0.06em]
-
               font-light
-
               text-[#4940d8]
-
               mb-10
             "
-            style={{
-              fontFamily:
-                'Inter, Helvetica, Arial, sans-serif',
-            }}
+            style={{fontFamily: 'Inter, Helvetica, Arial, sans-serif'}}
           >
             Mauro Pretti
           </h1>
 
           {/* TEXT */}
-
           <div
             className="
-              text-[16px]
-              md:text-[18px]
-
+              text-[16px] md:text-[18px]
               leading-[1.8]
-
               text-black/55
-
               space-y-10
             "
-            style={{
-              fontFamily:
-                'Inter, Helvetica, Arial, sans-serif',
-            }}
+            style={{fontFamily: 'Inter, Helvetica, Arial, sans-serif'}}
           >
+            <p>(1986) Paraná, Entre Ríos, Argentina.</p>
 
             <p>
-(1986) Paraná, Entre Ríos, Argentina.            </p>
-
-            <p>
-              Fotógrafo. Estudió y se graduó en la Escuela de Fotografía Creativa Andy Goldstein en 2017. Actualmente desarrolla su práctica y reside en Buenos Aires.
+              Fotógrafo. Estudió y se graduó en la Escuela de Fotografía Creativa
+              Andy Goldstein en 2017. Actualmente desarrolla su práctica y reside
+              en Buenos Aires.
             </p>
 
             <p>
-              Desde la fotografía creativa, desarrolla atmósferas contemplativas que invitan a una observación sensible, evocando imaginarios del inconsciente colectivo atravesados por el goce y la reinterpretación. Sus imágenes abordan vivencias, recuerdos y percepciones íntimas intervenidas por el cuerpo, la naturaleza y la arquitectura. A través de la recreación y reinterpretación de escenarios, construye espacios donde la intimidad, la memoria y la experiencia se tensionan en estados de impermanencia.
+              Desde la fotografía creativa, desarrolla atmósferas contemplativas
+              que invitan a una observación sensible, evocando imaginarios del
+              inconsciente colectivo atravesados por el goce y la reinterpretación.
+              Sus imágenes abordan vivencias, recuerdos y percepciones íntimas
+              intervenidas por el cuerpo, la naturaleza y la arquitectura. A través
+              de la recreación y reinterpretación de escenarios, construye espacios
+              donde la intimidad, la memoria y la experiencia se tensionan en
+              estados de impermanencia.
             </p>
 
             <p>
-              Complementó su formación a través de cursos y talleres de escritura, arte oriental y estética, performance corporal, montaje y conservación de obra, dictados por Maricel Álvarez, Silvia Elena Calvo, Tomás Lynch y Marcos López, entre otros.
+              Complementó su formación a través de cursos y talleres de escritura,
+              arte oriental y estética, performance corporal, montaje y conservación
+              de obra, dictados por Maricel Álvarez, Silvia Elena Calvo, Tomás Lynch
+              y Marcos López, entre otros.
             </p>
 
             <p>
-              Su obra formó parte de exposiciones individuales y colectivas, además de publicaciones impresas y revistas digitales.
+              Su obra formó parte de exposiciones individuales y colectivas, además
+              de publicaciones impresas y revistas digitales.
             </p>
-
           </div>
 
         </div>
-
       </section>
 
-<footer
-  className="
-    px-6
-    md:px-10
-
-    pb-16
-  "
->
-
-  <div
-    className="
-      flex
-      flex-wrap
-
-      gap-x-4
-      sm:gap-x-5
-
-      gap-y-3
-
-      text-[13px]
-      sm:text-[14px]
-
-      tracking-[-0.03em]
-
-      text-black/55
-    "
-    style={{
-      fontFamily:
-        'Satoshi, Inter, sans-serif',
-    }}
-  >
-
-    <AppLink href="/">
-      Home
-    </AppLink>
-
-    <AppLink href="/lightroom">
-      Lightroom
-    </AppLink>
-
-    <AppLink href="/publicitaria">
-      Publicitaria
-    </AppLink>
-
-    <AppLink href="/teatro">
-      Teatro
-    </AppLink>
-
-    <AppLink
-      href="/el-gesto-intimo"
-      className="tracking-[-0.06em]"
-    >
-      El gesto íntimo
-    </AppLink>
-
-    <AppLink href="/tienda">
-      Tienda
-    </AppLink>
-
-  </div>
-
-</footer>
-
-
+      <footer className="px-6 md:px-10 pb-16">
+        <div
+          className="
+            flex flex-wrap
+            gap-x-4 sm:gap-x-5
+            gap-y-3
+            text-[13px] sm:text-[14px]
+            tracking-[-0.03em]
+            text-black/55
+          "
+          style={{fontFamily: 'Satoshi, Inter, sans-serif'}}
+        >
+          <AppLink href="/">Home</AppLink>
+          <AppLink href="/lightroom">Lightroom</AppLink>
+          <AppLink href="/publicitaria">Publicitaria</AppLink>
+          <AppLink href="/teatro">Teatro</AppLink>
+          <AppLink href="/el-gesto-intimo" className="tracking-[-0.06em]">
+            El gesto íntimo
+          </AppLink>
+          <AppLink href="/tienda">Tienda</AppLink>
+        </div>
+      </footer>
     </main>
   )
 }
